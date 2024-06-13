@@ -1,10 +1,11 @@
-import * as React from "react";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
 import styled from "@emotion/styled";
-import theme from "../../../app/style/theme";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import CloseIcon from "@mui/icons-material/Close";
+import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import { Box, Button, IconButton } from "@mui/material";
+import * as React from "react";
+
+import theme from "../../../app/style/theme";
 export default function MobileNav({ text, type }) {
   const theme = createTheme({
     typography: {

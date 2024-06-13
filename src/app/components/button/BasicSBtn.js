@@ -1,4 +1,4 @@
-import * as React from "react";
+import styled from "@emotion/styled";
 import {
   Box,
   Button,
@@ -6,7 +6,8 @@ import {
   ThemeProvider,
   createTheme,
 } from "@mui/material";
-import styled from "@emotion/styled";
+import * as React from "react";
+
 import theme from "../../style/theme";
 
 export default function BasicSBtn({ text, state, handleClick, color }) {

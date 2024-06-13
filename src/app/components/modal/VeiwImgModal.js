@@ -1,19 +1,18 @@
-import * as React from "react";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
 import styled from "@emotion/styled";
-import theme from "../../../app/style/theme";
-
-import Dialog from "@mui/material/Dialog";
-import DialogContent from "@mui/material/DialogContent";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
-import CloseIcon from "@mui/icons-material/Close";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-
-import { Swiper, SwiperSlide } from "swiper/react";
+import CloseIcon from "@mui/icons-material/Close";
+import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import { Box, Button, IconButton } from "@mui/material";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import * as React from "react";
 import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import theme from "../../../app/style/theme";
 
 import "swiper/css";
 import "swiper/css/navigation";

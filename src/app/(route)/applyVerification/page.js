@@ -1,16 +1,18 @@
 "use client";
-import * as React from "react";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
 import styled from "@emotion/styled";
-import theme from "../../../app/style/theme";
-import Nav from "../../components/nav/Nav";
-import Footer from "../../components/footer/Footer";
 import SearchIcon from "@mui/icons-material/Search";
+import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import { Box, Button, IconButton } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
-import BasicSBtn from "@/app/components/button/BasicSBtn";
+import * as React from "react";
+
+import theme from "../../../app/style/theme";
+import Footer from "../../components/footer/Footer";
+import Nav from "../../components/nav/Nav";
+
 import BasicBtn from "@/app/components/button/BasicBtn";
+import BasicSBtn from "@/app/components/button/BasicSBtn";
 import BasicModal from "@/app/components/modal/BasicModal";
 export default function ApplyVerification() {
   const theme = createTheme({

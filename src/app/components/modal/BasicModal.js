@@ -1,29 +1,26 @@
-import * as React from "react";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
 import styled from "@emotion/styled";
-import theme from "../../../app/style/theme";
-
+import CloseIcon from "@mui/icons-material/Close";
+import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import { Box, Button, IconButton } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import CloseIcon from "@mui/icons-material/Close";
-import TermsOfUse from "./content/TermsOfUse";
-import Privacy from "./content/Privacy";
-import Service from "./content/Service";
-import JoinCoupon from "./content/JoinCoupon";
-import ReviewCoupon from "./content/ReviewCoupon";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import * as React from "react";
+
+import AcceptVerification from "./content/AcceptVerification";
+import ApplicationRegistration from "./content/ApplicationRegistration";
+import ApplySuccess from "./content/ApplySuccess";
 import CouponSelect from "./content/CouponSelect";
+import Delete from "./content/Delete";
+import JoinCoupon from "./content/JoinCoupon";
 import PointCharge from "./content/PointCharge";
+import ReviewCoupon from "./content/ReviewCoupon";
 import PaymentSuccess from "./content/PaymentSuccess";
 import SearchAgentList from "./content/SearchAgentList";
-import ApplySuccess from "./content/ApplySuccess";
-import ApplicationRegistration from "./content/ApplicationRegistration";
-import Delete from "./content/Delete";
 import Reason from "./content/Reason";
 import Detail from "./content/point/Detail";
 import Certification from "./content/point/Certification";
@@ -32,11 +29,14 @@ import WithdrawalApplication from "./content/point/WithdrawalApplication";
 import Secession from "./content/point/Secession";
 import Completed from "./content/point/Completed";
 import Completed2 from "./content/point/Completed2";
+import Service from "./content/Service";
+import TermsOfUse from "./content/TermsOfUse";
 import VerificationRejected from "./content/VerificationRejected";
 import Notice from "./content/Notice";
-import AcceptVerification from "./content/AcceptVerification";
+import Privacy from "./content/Privacy";
 import VerificationWaiver from "./content/VerificationWaiver";
 import WithdrawalCompleted from "./content/WithdrawalCompleted";
+import theme from "../../../app/style/theme";
 
 export default function BasicModal({
   handleClose,

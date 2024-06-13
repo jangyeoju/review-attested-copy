@@ -1,16 +1,18 @@
 "use client";
-import * as React from "react";
-import { useState } from "react";
 import { Box, Button, IconButton } from "@mui/material";
 import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import * as React from "react";
+import { useState } from "react";
 import "../../../style/global.css";
 import styled from "@emotion/styled";
+
 import theme from "../../../../app/style/theme";
-import MobileBox from "@/app/components/layout/MobileBox";
-import MobileNav from "@/app/components/nav/MobileNav";
+
 import BasicBtn from "@/app/components/button/BasicBtn";
-import BasicModal from "@/app/components/modal/BasicModal";
+import MobileBox from "@/app/components/layout/MobileBox";
 import MobileContainerBox from "@/app/components/layout/MobileContainerBox";
+import BasicModal from "@/app/components/modal/BasicModal";
+import MobileNav from "@/app/components/nav/MobileNav";
 
 export default function Registration() {
   const theme = createTheme({

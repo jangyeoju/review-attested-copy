@@ -1,18 +1,19 @@
 "use client";
-import * as React from "react";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
 import styled from "@emotion/styled";
-import { Box, Button, IconButton } from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
+import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import { Box, Button, IconButton } from "@mui/material";
+import * as React from "react";
+
+import theme from "../../style/theme";
+
+import AttestedCopy from "@/app/components/attestedCopy/attestedCopy";
 import RoundSBtn from "@/app/components/button/RoundSBtn";
 import SearchBar from "@/app/components/search/SearchBar";
 import SearchList from "@/app/components/search/SearchList";
-import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import AttestedCopy from "@/app/components/attestedCopy/attestedCopy";
-
-import theme from "../../style/theme";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 

@@ -1,20 +1,22 @@
 "use client";
-import * as React from "react";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
 import styled from "@emotion/styled";
-import theme from "../app/style/theme";
-import Nav from "./components/nav/Nav";
-import ContainerBox from "./components/layout/ContainerBox";
-import SearchBar from "./components/search/SearchBar";
-import ControlPointIcon from "@mui/icons-material/ControlPoint";
-import RoundCBtn from "./components/button/RoundCBtn";
-import InputText from "./components/input/InputText";
+
 
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ControlPointIcon from "@mui/icons-material/ControlPoint";
 import ShareIcon from "@mui/icons-material/Share";
-import Footer from "./components/footer/Footer";
+import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import { Box, Button, IconButton } from "@mui/material";
+import * as React from "react";
+
+import RoundCBtn from "./components/button/RoundCBtn";
 import ReviewBoxList from "./components/common/ReviewBoxList";
+import Footer from "./components/footer/Footer";
+import InputText from "./components/input/InputText";
+import ContainerBox from "./components/layout/ContainerBox";
+import Nav from "./components/nav/Nav";
+import SearchBar from "./components/search/SearchBar";
+import theme from "../app/style/theme";
 export default function Home() {
   const theme = createTheme({
     typography: {

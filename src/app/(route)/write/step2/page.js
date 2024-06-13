@@ -1,17 +1,20 @@
 "use client";
-import * as React from "react";
+import styled from "@emotion/styled";
+import CloseIcon from "@mui/icons-material/Close";
 import { Box, Button, IconButton } from "@mui/material";
 import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import styled from "@emotion/styled";
+import * as React from "react";
+import { FileUploader } from "react-drag-drop-files";
+
 import theme from "../../../../app/style/theme";
-import Nav from "../../../components/nav/Nav";
-import WriteTitle from "@/app/components/title/WriteTitle";
 import Footer from "../../../components/footer/Footer";
-import BasicBtn from "@/app/components/button/BasicBtn";
+import Nav from "../../../components/nav/Nav";
+
 import CheckWriteBox from "@/app/components/attestedCopy/wrtie/CheckWriteBox";
 import GeneralOpinionBox from "@/app/components/attestedCopy/wrtie/GeneralOpinionBox";
-import CloseIcon from "@mui/icons-material/Close";
-import { FileUploader } from "react-drag-drop-files";
+import BasicBtn from "@/app/components/button/BasicBtn";
+import WriteTitle from "@/app/components/title/WriteTitle";
+
 const fileTypes = ["JPG", "PNG", "GIF"];
 
 export default function Step2() {

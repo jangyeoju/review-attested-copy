@@ -1,19 +1,21 @@
 "use client";
-import * as React from "react";
-import { useState } from "react";
 import { Box, Button, IconButton } from "@mui/material";
 import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
+import Typography from "@mui/material/Typography";
+import PropTypes from "prop-types";
+import * as React from "react";
+import { useState } from "react";
 import "../../../style/global.css";
 import styled from "@emotion/styled";
+
 import theme from "../../../../app/style/theme";
-import MobileBox from "@/app/components/layout/MobileBox";
-import MobileNav from "@/app/components/nav/MobileNav";
-import MobileContainerBox from "@/app/components/layout/MobileContainerBox";
+
 import AttestedCopyMobile from "@/app/components/attestedCopy/mobileView/page";
-import PropTypes from "prop-types";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
+import MobileBox from "@/app/components/layout/MobileBox";
+import MobileContainerBox from "@/app/components/layout/MobileContainerBox";
+import MobileNav from "@/app/components/nav/MobileNav";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;

@@ -1,17 +1,19 @@
 "use client";
-import * as React from "react";
-import { useState } from "react";
 import { Box, Button, IconButton } from "@mui/material";
 import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import * as React from "react";
+import { useState } from "react";
 import "../../../style/global.css";
 import styled from "@emotion/styled";
+
 import theme from "../../../../app/style/theme";
-import MobileBox from "@/app/components/layout/MobileBox";
-import MobileNav from "@/app/components/nav/MobileNav";
-import MobileContainerBox from "@/app/components/layout/MobileContainerBox";
+
 import InputText from "@/app/components/input/InputText";
 import SelectBasic from "@/app/components/input/SelectBasic";
+import MobileBox from "@/app/components/layout/MobileBox";
+import MobileContainerBox from "@/app/components/layout/MobileContainerBox";
 import BasicModal from "@/app/components/modal/BasicModal";
+import MobileNav from "@/app/components/nav/MobileNav";
 
 export default function Privacy() {
   const theme = createTheme({

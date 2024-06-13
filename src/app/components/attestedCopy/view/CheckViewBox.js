@@ -1,14 +1,14 @@
-import * as React from "react";
+import styled from "@emotion/styled";
+import EditIcon from "@mui/icons-material/Edit";
 import { Box, Button, IconButton } from "@mui/material";
 import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import styled from "@emotion/styled";
-import theme from "../../../style/theme";
-
+import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import EditIcon from "@mui/icons-material/Edit";
+import * as React from "react";
+
+import theme from "../../../style/theme";
 
 export default function CheckViewBox({
   num,

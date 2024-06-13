@@ -1,15 +1,18 @@
 "use client";
-import * as React from "react";
+import styled from "@emotion/styled";
 import { Box, Button, IconButton } from "@mui/material";
 import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import styled from "@emotion/styled";
-import theme from "../../../../app/style/theme";
-import Nav from "../../../components/nav/Nav";
-import WriteTitle from "@/app/components/title/WriteTitle";
-import Footer from "../../../components/footer/Footer";
 import TextField from "@mui/material/TextField";
+import * as React from "react";
+
+import theme from "../../../../app/style/theme";
+import Footer from "../../../components/footer/Footer";
+import Nav from "../../../components/nav/Nav";
+
 import BasicBtn from "@/app/components/button/BasicBtn";
 import BasicModal from "@/app/components/modal/BasicModal";
+import WriteTitle from "@/app/components/title/WriteTitle";
+
 export default function Step2() {
   const theme = createTheme({
     typography: {

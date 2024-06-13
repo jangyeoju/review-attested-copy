@@ -1,15 +1,19 @@
-import * as React from "react";
-import { useState } from "react";
 import { Box, Button, IconButton } from "@mui/material";
 import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import * as React from "react";
+import { useState } from "react";
 import "../../../../style/global.css";
 import styled from "@emotion/styled";
+
 import theme from "../../../../../app/style/theme";
+
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import BasicSBtn from "@/app/components/button/BasicSBtn";
-import BasicBtn from "@/app/components/button/BasicBtn";
+
 import BasicModal from "../../BasicModal";
+
+import BasicBtn from "@/app/components/button/BasicBtn";
+import BasicSBtn from "@/app/components/button/BasicSBtn";
 
 export default function Secession({ handleClose }) {
   const theme = createTheme({

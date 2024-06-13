@@ -1,16 +1,18 @@
 "use client";
-import * as React from "react";
+import styled from "@emotion/styled";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { Box, Button, IconButton } from "@mui/material";
 import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import styled from "@emotion/styled";
+import * as React from "react";
+
 import theme from "../../../app/style/theme";
-import Nav from "../../components/nav/Nav";
 import Footer from "../../components/footer/Footer";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import WriteTitle from "@/app/components/title/WriteTitle";
+import Nav from "../../components/nav/Nav";
+
+import BasicBtn from "@/app/components/button/BasicBtn";
 import InputText from "@/app/components/input/InputText";
 import SelectBasic from "@/app/components/input/SelectBasic";
-import BasicBtn from "@/app/components/button/BasicBtn";
+import WriteTitle from "@/app/components/title/WriteTitle";
 export default function Write() {
   const theme = createTheme({
     typography: {

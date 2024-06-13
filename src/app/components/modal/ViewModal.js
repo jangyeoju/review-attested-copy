@@ -1,25 +1,25 @@
-import * as React from "react";
+import styled from "@emotion/styled";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import CloseIcon from "@mui/icons-material/Close";
+import SaveAltIcon from "@mui/icons-material/SaveAlt";
 import { Box, Button, IconButton } from "@mui/material";
 import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import styled from "@emotion/styled";
-import theme from "../../../app/style/theme";
-
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import useMediaQuery from "@mui/material/useMediaQuery";
+import Rating from "@mui/material/Rating";
 import { useTheme } from "@mui/material/styles";
-import CloseIcon from "@mui/icons-material/Close";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import TextField from "@mui/material/TextField";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import SaveAltIcon from "@mui/icons-material/SaveAlt";
-import Rating from "@mui/material/Rating";
+import * as React from "react";
+
+import ViewImgModal from "./VeiwImgModal";
+import theme from "../../../app/style/theme";
 import CheckViewBox from "../attestedCopy/view/CheckViewBox";
 import RoundCBtn from "../button/RoundCBtn";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import ViewImgModal from "./VeiwImgModal";
 
 export default function ViewModal({ handleClose, open }) {
   const theme = useTheme();

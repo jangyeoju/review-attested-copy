@@ -1,20 +1,22 @@
 "use client";
-import * as React from "react";
+import styled from "@emotion/styled";
+import SearchIcon from "@mui/icons-material/Search";
 import { Box, Button, IconButton } from "@mui/material";
 import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import styled from "@emotion/styled";
-import theme from "../../../app/style/theme";
-import Nav from "../../components/nav/Nav";
-import Footer from "../../components/footer/Footer";
-import ContainerBox from "@/app/components/layout/ContainerBox";
+import FormControl from "@mui/material/FormControl";
 import Input from "@mui/material/Input";
 import InputAdornment from "@mui/material/InputAdornment";
-import SearchIcon from "@mui/icons-material/Search";
 import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import BasicPagination from "@/app/components/pagination/BasicPagination";
+import * as React from "react";
+
+import theme from "../../../app/style/theme";
+import Footer from "../../components/footer/Footer";
+import Nav from "../../components/nav/Nav";
+
+import ContainerBox from "@/app/components/layout/ContainerBox";
 import NoticeModal from "@/app/components/modal/NoticeModal";
+import BasicPagination from "@/app/components/pagination/BasicPagination";
 
 export default function Notice() {
   const theme = createTheme({

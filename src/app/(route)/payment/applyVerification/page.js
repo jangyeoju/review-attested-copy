@@ -1,24 +1,27 @@
 "use client";
-import * as React from "react";
+import styled from "@emotion/styled";
 import { Box, Button, IconButton } from "@mui/material";
 import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import styled from "@emotion/styled";
-import theme from "../../../../app/style/theme";
-import Nav from "../../../components/nav/Nav";
-import Footer from "../../../components/footer/Footer";
-import ContainerBox from "@/app/components/layout/ContainerBox";
-import Title from "@/app/components/title/Title";
-
-import AttestedCopy from "@/app/components/attestedCopy/attestedCopy";
-import InputText from "@/app/components/input/InputText";
-import BasicBtn from "@/app/components/button/BasicBtn";
-import BasicModal from "@/app/components/modal/BasicModal";
+import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
+import * as React from "react";
+
+import theme from "../../../../app/style/theme";
+import Footer from "../../../components/footer/Footer";
+import Nav from "../../../components/nav/Nav";
+
+import AttestedCopy from "@/app/components/attestedCopy/attestedCopy";
+import BasicBtn from "@/app/components/button/BasicBtn";
 import BasicSBtn from "@/app/components/button/BasicSBtn";
+import InputText from "@/app/components/input/InputText";
 import InputTextEnd from "@/app/components/input/InputTextEnd";
+import ContainerBox from "@/app/components/layout/ContainerBox";
+import BasicModal from "@/app/components/modal/BasicModal";
+import Title from "@/app/components/title/Title";
+
+
 
 export default function ApplyVerificationPayment() {
   const theme = createTheme({

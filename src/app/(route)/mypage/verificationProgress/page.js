@@ -1,20 +1,23 @@
 "use client";
-import * as React from "react";
-import { useState } from "react";
 import { Box, Button, IconButton } from "@mui/material";
 import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import "../../../style/global.css";
-import styled from "@emotion/styled";
-import theme from "../../../../app/style/theme";
-import MobileBox from "@/app/components/layout/MobileBox";
-import MobileNav from "@/app/components/nav/MobileNav";
-import MobileContainerBox from "@/app/components/layout/MobileContainerBox";
-import AttestedCopyMobile from "@/app/components/attestedCopy/mobileView/page";
+import Rating from "@mui/material/Rating";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import * as React from "react";
+import { useState } from "react";
+import "../../../style/global.css";
+import styled from "@emotion/styled";
+
+import theme from "../../../../app/style/theme";
+
+import AttestedCopyMobile from "@/app/components/attestedCopy/mobileView/page";
 import RoundCBtn from "@/app/components/button/RoundCBtn";
+import MobileBox from "@/app/components/layout/MobileBox";
+import MobileContainerBox from "@/app/components/layout/MobileContainerBox";
+import MobileNav from "@/app/components/nav/MobileNav";
+
 import SaveAltIcon from "@mui/icons-material/SaveAlt";
-import Rating from "@mui/material/Rating";
 import StarIcon from "@mui/icons-material/Star";
 
 const labels = {

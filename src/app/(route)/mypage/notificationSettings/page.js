@@ -1,15 +1,17 @@
 "use client";
-import * as React from "react";
-import { useState } from "react";
 import { Box, Button, IconButton } from "@mui/material";
 import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import Switch from "@mui/material/Switch";
+import * as React from "react";
+import { useState } from "react";
 import "../../../style/global.css";
 import styled from "@emotion/styled";
+
 import theme from "../../../../app/style/theme";
+
 import MobileBox from "@/app/components/layout/MobileBox";
-import MobileNav from "@/app/components/nav/MobileNav";
 import MobileContainerBox from "@/app/components/layout/MobileContainerBox";
-import Switch from "@mui/material/Switch";
+import MobileNav from "@/app/components/nav/MobileNav";
 
 const label = { inputProps: { "aria-label": "Switch demo" } };
 
