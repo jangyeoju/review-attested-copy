@@ -1,7 +1,7 @@
+"use client";
+
 import styled from "@emotion/styled";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import { Box, Button, IconButton } from "@mui/material";
-import * as React from "react";
+import { Button, ThemeProvider, createTheme } from "@mui/material";
 
 import theme from "../../style/theme";
 

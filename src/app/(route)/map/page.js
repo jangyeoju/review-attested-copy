@@ -4,8 +4,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import { Box, Button, IconButton } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import * as React from "react";
 
 import theme from "../../style/theme";
@@ -15,20 +14,7 @@ import RoundSBtn from "@/app/components/button/RoundSBtn";
 import SearchBar from "@/app/components/search/SearchBar";
 import SearchList from "@/app/components/search/SearchList";
 
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
-
 export default function Map() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -40,14 +26,6 @@ export default function Map() {
   };
 
   const [open2, setOpen2] = React.useState(false);
-
-  const handleClickOpen2 = () => {
-    setOpen2(true);
-  };
-
-  const handleClose2 = () => {
-    setOpen2(false);
-  };
 
   const [state, setState] = React.useState(false);
   const handleDetail = () => {
@@ -123,187 +101,185 @@ export default function Map() {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <MapWrap>
-          <SearchMapWrap>
-            <SearchMap>
-              <div className="top-nav">
-                <IconButton>
-                  <ChevronLeftIcon />
-                </IconButton>
-                <RoundSBtn text={"로그인"} />
-              </div>
-              <div className="search-box">
-                <SearchBar handleClickOpen={handleClickOpen} />
-                {open ? (
-                  <>
-                    <SearchListWrap>
-                      <SearchList handleClose={handleClose} />
-                    </SearchListWrap>
-                  </>
-                ) : (
-                  <></>
-                )}
-              </div>
-              {open2 ? (
-                <ReviewList>
-                  {!up ? (
-                    <>
-                      <div className="up-slide-title">
-                        <h3>
-                          총 <strong>6개</strong>의 후기부등본이 있습니다.
-                        </h3>
-                        <IconButton onClick={handleClickUp}>
-                          <KeyboardArrowUpIcon />
-                        </IconButton>
-                      </div>
-                      <div className="box-shadow-none">
-                        <AttestedCopy
-                          tag1={true}
-                          tag2={true}
-                          tag3={true}
-                          price={"3,300원"}
-                        />
-                      </div>
-                    </>
-                  ) : (
-                    <></>
-                  )}
-                </ReviewList>
+      <MapWrap>
+        <SearchMapWrap>
+          <SearchMap>
+            <div className="top-nav">
+              <IconButton>
+                <ChevronLeftIcon />
+              </IconButton>
+              <RoundSBtn text={"로그인"} />
+            </div>
+            <div className="search-box">
+              <SearchBar handleClickOpen={handleClickOpen} />
+              {open ? (
+                <>
+                  <SearchListWrap>
+                    <SearchList handleClose={handleClose} />
+                  </SearchListWrap>
+                </>
               ) : (
                 <></>
               )}
-              {up ? (
-                <>
-                  <ReviewListTop>
+            </div>
+            {open2 ? (
+              <ReviewList>
+                {!up ? (
+                  <>
                     <div className="up-slide-title">
                       <h3>
                         총 <strong>6개</strong>의 후기부등본이 있습니다.
                       </h3>
                       <IconButton onClick={handleClickUp}>
-                        <KeyboardArrowDownIcon />
+                        <KeyboardArrowUpIcon />
                       </IconButton>
                     </div>
-                    <UpList>
-                      <div className="box-shadow-none">
-                        <AttestedCopy
-                          tag1={true}
-                          tag2={true}
-                          tag3={true}
-                          price={"3,300원"}
-                        />
-                      </div>
-                      <div className="box-shadow-none">
-                        <AttestedCopy
-                          tag1={true}
-                          tag2={true}
-                          tag3={true}
-                          price={"3,300원"}
-                        />
-                      </div>
-                      <div className="box-shadow-none">
-                        <AttestedCopy
-                          tag1={true}
-                          tag2={true}
-                          tag3={true}
-                          price={"3,300원"}
-                        />
-                      </div>
-                      <div className="box-shadow-none">
-                        <AttestedCopy
-                          tag1={true}
-                          tag2={true}
-                          tag3={true}
-                          price={"3,300원"}
-                        />
-                      </div>
-                      <div className="box-shadow-none">
-                        <AttestedCopy
-                          tag1={true}
-                          tag2={true}
-                          tag3={true}
-                          price={"3,300원"}
-                        />
-                      </div>
-                      <div className="box-shadow-none">
-                        <AttestedCopy
-                          tag1={true}
-                          tag2={true}
-                          tag3={true}
-                          price={"3,300원"}
-                        />
-                      </div>
-                    </UpList>
-                  </ReviewListTop>
-                </>
-              ) : (
-                <></>
-              )}
-            </SearchMap>
-          </SearchMapWrap>
-          <div className="location-btn">
-            <IconButton>
-              <LocationSearchingIcon />
-            </IconButton>
-          </div>
-          <PinWrap>
-            {!state ? (
-              <Pin id="pin1" onClick={handleDetail}>
-                <h2>13</h2>
-              </Pin>
+                    <div className="box-shadow-none">
+                      <AttestedCopy
+                        tag1={true}
+                        tag2={true}
+                        tag3={true}
+                        price={"3,300원"}
+                      />
+                    </div>
+                  </>
+                ) : (
+                  <></>
+                )}
+              </ReviewList>
             ) : (
-              <Pin id="pin1" className="pin-check" onClick={handleDetail}>
-                <h2>13</h2>
-              </Pin>
+              <></>
             )}
-            {!state2 ? (
-              <Pin id="pin2" onClick={handleDetail2}>
-                <h2>10</h2>
-              </Pin>
+            {up ? (
+              <>
+                <ReviewListTop>
+                  <div className="up-slide-title">
+                    <h3>
+                      총 <strong>6개</strong>의 후기부등본이 있습니다.
+                    </h3>
+                    <IconButton onClick={handleClickUp}>
+                      <KeyboardArrowDownIcon />
+                    </IconButton>
+                  </div>
+                  <UpList>
+                    <div className="box-shadow-none">
+                      <AttestedCopy
+                        tag1={true}
+                        tag2={true}
+                        tag3={true}
+                        price={"3,300원"}
+                      />
+                    </div>
+                    <div className="box-shadow-none">
+                      <AttestedCopy
+                        tag1={true}
+                        tag2={true}
+                        tag3={true}
+                        price={"3,300원"}
+                      />
+                    </div>
+                    <div className="box-shadow-none">
+                      <AttestedCopy
+                        tag1={true}
+                        tag2={true}
+                        tag3={true}
+                        price={"3,300원"}
+                      />
+                    </div>
+                    <div className="box-shadow-none">
+                      <AttestedCopy
+                        tag1={true}
+                        tag2={true}
+                        tag3={true}
+                        price={"3,300원"}
+                      />
+                    </div>
+                    <div className="box-shadow-none">
+                      <AttestedCopy
+                        tag1={true}
+                        tag2={true}
+                        tag3={true}
+                        price={"3,300원"}
+                      />
+                    </div>
+                    <div className="box-shadow-none">
+                      <AttestedCopy
+                        tag1={true}
+                        tag2={true}
+                        tag3={true}
+                        price={"3,300원"}
+                      />
+                    </div>
+                  </UpList>
+                </ReviewListTop>
+              </>
             ) : (
-              <Pin id="pin2" className="pin-check" onClick={handleDetail2}>
-                <h2>10</h2>
-              </Pin>
+              <></>
             )}
-            {!state3 ? (
-              <Pin id="pin3" onClick={handleDetail3}>
-                <h2>9</h2>
-              </Pin>
-            ) : (
-              <Pin id="pin3" className="pin-check" onClick={handleDetail3}>
-                <h2>9</h2>
-              </Pin>
-            )}
-            {!state4 ? (
-              <Pin id="pin4" onClick={handleDetail4}>
-                <h2>8</h2>
-              </Pin>
-            ) : (
-              <Pin id="pin4" className="pin-check" onClick={handleDetail4}>
-                <h2>8</h2>
-              </Pin>
-            )}
-            {!state5 ? (
-              <Pin id="pin5" onClick={handleDetail5}>
-                <h2>15</h2>
-              </Pin>
-            ) : (
-              <Pin id="pin5" className="pin-check" onClick={handleDetail5}>
-                <h2>15</h2>
-              </Pin>
-            )}
-            {!state6 ? (
-              <Pin id="pin6" onClick={handleDetail6}>
-                <h2>29</h2>
-              </Pin>
-            ) : (
-              <Pin id="pin6" className="pin-check" onClick={handleDetail6}>
-                <h2>29</h2>
-              </Pin>
-            )}
-          </PinWrap>
-        </MapWrap>
-      </ThemeProvider>
+          </SearchMap>
+        </SearchMapWrap>
+        <div className="location-btn">
+          <IconButton>
+            <LocationSearchingIcon />
+          </IconButton>
+        </div>
+        <PinWrap>
+          {!state ? (
+            <Pin id="pin1" onClick={handleDetail}>
+              <h2>13</h2>
+            </Pin>
+          ) : (
+            <Pin id="pin1" className="pin-check" onClick={handleDetail}>
+              <h2>13</h2>
+            </Pin>
+          )}
+          {!state2 ? (
+            <Pin id="pin2" onClick={handleDetail2}>
+              <h2>10</h2>
+            </Pin>
+          ) : (
+            <Pin id="pin2" className="pin-check" onClick={handleDetail2}>
+              <h2>10</h2>
+            </Pin>
+          )}
+          {!state3 ? (
+            <Pin id="pin3" onClick={handleDetail3}>
+              <h2>9</h2>
+            </Pin>
+          ) : (
+            <Pin id="pin3" className="pin-check" onClick={handleDetail3}>
+              <h2>9</h2>
+            </Pin>
+          )}
+          {!state4 ? (
+            <Pin id="pin4" onClick={handleDetail4}>
+              <h2>8</h2>
+            </Pin>
+          ) : (
+            <Pin id="pin4" className="pin-check" onClick={handleDetail4}>
+              <h2>8</h2>
+            </Pin>
+          )}
+          {!state5 ? (
+            <Pin id="pin5" onClick={handleDetail5}>
+              <h2>15</h2>
+            </Pin>
+          ) : (
+            <Pin id="pin5" className="pin-check" onClick={handleDetail5}>
+              <h2>15</h2>
+            </Pin>
+          )}
+          {!state6 ? (
+            <Pin id="pin6" onClick={handleDetail6}>
+              <h2>29</h2>
+            </Pin>
+          ) : (
+            <Pin id="pin6" className="pin-check" onClick={handleDetail6}>
+              <h2>29</h2>
+            </Pin>
+          )}
+        </PinWrap>
+      </MapWrap>
     </>
   );
 }

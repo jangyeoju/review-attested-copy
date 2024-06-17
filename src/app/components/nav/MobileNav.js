@@ -1,35 +1,21 @@
+"use client";
+
 import styled from "@emotion/styled";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import CloseIcon from "@mui/icons-material/Close";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import { Box, Button, IconButton } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import * as React from "react";
 
 import theme from "../../../app/style/theme";
 export default function MobileNav({ text, type }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <MobileNavWrap>
-          <IconButton>
-            <ChevronLeftIcon />
-          </IconButton>
-          <h1>{text}</h1>
-          <IconButton>{type == "delete" ? <CloseIcon /> : <></>}</IconButton>
-        </MobileNavWrap>
-      </ThemeProvider>
-    </>
+    <MobileNavWrap>
+      <IconButton>
+        <ChevronLeftIcon />
+      </IconButton>
+      <h1>{text}</h1>
+      <IconButton>{type == "delete" ? <CloseIcon /> : <></>}</IconButton>
+    </MobileNavWrap>
   );
 }
 

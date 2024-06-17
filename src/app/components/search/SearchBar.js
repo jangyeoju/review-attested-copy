@@ -1,36 +1,45 @@
+"use client";
+
 import styled from "@emotion/styled";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import { Box, Button, IconButton } from "@mui/material";
+import { Box } from "@mui/material";
 import * as React from "react";
 
 import theme from "../../style/theme";
 import RoundCBtn from "../button/RoundCBtn";
 
-export default function SearchBar({ type, open, handleClickOpen }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#00D45E",
-      },
-    },
-  });
+import SearchList from "@/app/components/search/SearchList";
+
+export default function SearchBar({ showSearchHistory }) {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <SearchBarWrap onClick={handleClickOpen}>
-          <input
-            type="text"
-            id="search"
-            name="search"
-            placeholder="주소나 장소를 검색하세요."
-          ></input>
-          <RoundCBtn text={"검색"} variant={"contained"} />
-        </SearchBarWrap>
-      </ThemeProvider>
+      <SearchBarWrap onClick={handleClickOpen}>
+        <input
+          type="text"
+          id="search"
+          name="search"
+          placeholder="주소나 장소를 검색하세요."
+        ></input>
+        <RoundCBtn text={"검색"} variant={"contained"} />
+      </SearchBarWrap>
+      {showSearchHistory && open ? (
+        <>
+          <SearchListWrap>
+            <SearchList handleClose={handleClose} />
+          </SearchListWrap>
+        </>
+      ) : (
+        <></>
+      )}
     </>
   );
 }
@@ -64,5 +73,25 @@ const SearchBarWrap = styled(Box)`
       font-size: 1.6rem;
       padding: 0.5rem 3rem;
     }
+  }
+`;
+
+export const SearchListWrap = styled(Box)`
+  width: 98rem;
+  border-radius: 16px;
+  box-shadow: 4px 12px 20px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+  position: absolute;
+  top: 9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  & > div {
+    border-radius: 16px;
+  }
+  @media ${() => theme.device.tablet} {
+    width: 100%;
+    top: 7rem;
   }
 `;

@@ -1,9 +1,10 @@
+"use client";
+
 import styled from "@emotion/styled";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import CloseIcon from "@mui/icons-material/Close";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import { Box, Button, IconButton } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import { useTheme } from "@mui/material/styles";

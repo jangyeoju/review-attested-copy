@@ -1,14 +1,13 @@
+"use client";
+
 import styled from "@emotion/styled";
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import * as React from "react";
 
-import theme from "../../../app/style/theme";
-
-export default function SelectBasic({ type, state, helperText, placeholder }) {
+export default function SelectBasic({ type, state, placeholder }) {
   const [select, setSelect] = React.useState(10);
   const handleChange = (event) => {
     setSelect(event.target.value);

@@ -1,14 +1,11 @@
 import styled from "@emotion/styled";
 import EditIcon from "@mui/icons-material/Edit";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import { Box } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import * as React from "react";
-
-import theme from "../../../style/theme";
 
 export default function CheckViewBox({
   num,
@@ -18,232 +15,217 @@ export default function CheckViewBox({
   value,
   qtype,
 }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <CheckWriteBoxWrap>
-          <div className="catagory-title">
-            <div className="num-box">
-              <h5>{num}</h5>
-            </div>
-            <h4>{categoryName}</h4>
-          </div>
-          <div className="q-text">
-            <h3>
-              <span>Q.</span>
-              {qText}
-            </h3>
-          </div>
-          <FormControl>
-            <RadioGroup
-              row
-              aria-labelledby="demo-row-radio-buttons-group-label"
-              name="row-radio-buttons-group"
-              defaultValue={value}
-            >
-              {qtype == "1" ? (
-                <>
-                  <StyledFormControlLabel
-                    value="0"
-                    disabled={value == "0" ? false : true}
-                    control={<Radio />}
-                    label="매우 많다(0)"
-                  />
-                  <StyledFormControlLabel
-                    value="1"
-                    disabled={value == "1" ? false : true}
-                    control={<Radio />}
-                    label="있는 편이다(1)"
-                  />
-                  <StyledFormControlLabel
-                    value="3"
-                    disabled={value == "3" ? false : true}
-                    control={<Radio />}
-                    label="없는 편이다(3)"
-                  />
-                  <StyledFormControlLabel
-                    value="5"
-                    disabled={value == "5" ? false : true}
-                    control={<Radio />}
-                    label="전혀 없다(5)"
-                  />
-                </>
-              ) : (
-                <></>
-              )}
-              {qtype == "2" ? (
-                <>
-                  <StyledFormControlLabel
-                    value="0"
-                    disabled={value == "0" ? false : true}
-                    control={<Radio />}
-                    label="매우 안된다(0)"
-                  />
-                  <StyledFormControlLabel
-                    value="1"
-                    disabled={value == "1" ? false : true}
-                    control={<Radio />}
-                    label="안되는 편이다(1)"
-                  />
-                  <StyledFormControlLabel
-                    value="3"
-                    disabled={value == "3" ? false : true}
-                    control={<Radio />}
-                    label="잘되는 편이다(3)"
-                  />
-                  <StyledFormControlLabel
-                    value="5"
-                    disabled={value == "5" ? false : true}
-                    control={<Radio />}
-                    label="매우 잘된다(5)"
-                  />
-                </>
-              ) : (
-                <></>
-              )}
-              {qtype == "3" ? (
-                <>
-                  <StyledFormControlLabel
-                    value="0"
-                    disabled={value == "0" ? false : true}
-                    control={<Radio />}
-                    label="매우 난다(0)"
-                  />
-                  <StyledFormControlLabel
-                    value="1"
-                    disabled={value == "1" ? false : true}
-                    control={<Radio />}
-                    label="나는 편이다(1)"
-                  />
-                  <StyledFormControlLabel
-                    value="3"
-                    disabled={value == "3" ? false : true}
-                    control={<Radio />}
-                    label="안나는 편이다(3)"
-                  />
-                  <StyledFormControlLabel
-                    value="5"
-                    disabled={value == "5" ? false : true}
-                    control={<Radio />}
-                    label="전혀 안난다(5)"
-                  />
-                </>
-              ) : (
-                <></>
-              )}
-              {qtype == "4" ? (
-                <>
-                  <StyledFormControlLabel
-                    value="0"
-                    disabled={value == "0" ? false : true}
-                    control={<Radio />}
-                    label="매우 나쁘다(0)"
-                  />
-                  <StyledFormControlLabel
-                    value="1"
-                    disabled={value == "1" ? false : true}
-                    control={<Radio />}
-                    label="나쁜 편이다(1)"
-                  />
-                  <StyledFormControlLabel
-                    value="3"
-                    disabled={value == "3" ? false : true}
-                    control={<Radio />}
-                    label="좋은 편이다(3)"
-                  />
-                  <StyledFormControlLabel
-                    value="5"
-                    disabled={value == "5" ? false : true}
-                    control={<Radio />}
-                    label="매우 좋다(5)"
-                  />
-                </>
-              ) : (
-                <></>
-              )}
-              {qtype == "5" ? (
-                <>
-                  <StyledFormControlLabel
-                    value="0"
-                    disabled={value == "0" ? false : true}
-                    control={<Radio />}
-                    label="매우 불편하다(0)"
-                  />
-                  <StyledFormControlLabel
-                    value="1"
-                    disabled={value == "1" ? false : true}
-                    control={<Radio />}
-                    label="불편한 편이다(1)"
-                  />
-                  <StyledFormControlLabel
-                    value="3"
-                    disabled={value == "3" ? false : true}
-                    control={<Radio />}
-                    label="편리한 편이다(3)"
-                  />
-                  <StyledFormControlLabel
-                    value="5"
-                    disabled={value == "5" ? false : true}
-                    control={<Radio />}
-                    label="매우 편리하다(5)"
-                  />
-                </>
-              ) : (
-                <></>
-              )}
-              {qtype == "6" ? (
-                <>
-                  <StyledFormControlLabel
-                    value="0"
-                    disabled={value == "0" ? false : true}
-                    control={<Radio />}
-                    label="절대 아니다(0)"
-                  />
-                  <StyledFormControlLabel
-                    value="1"
-                    disabled={value == "1" ? false : true}
-                    control={<Radio />}
-                    label="아니다(1)"
-                  />
-                  <StyledFormControlLabel
-                    value="3"
-                    disabled={value == "3" ? false : true}
-                    control={<Radio />}
-                    label="그렇다(3)"
-                  />
-                  <StyledFormControlLabel
-                    value="5"
-                    disabled={value == "5" ? false : true}
-                    control={<Radio />}
-                    label="매우 그렇다(5)"
-                  />
-                </>
-              ) : (
-                <></>
-              )}
-            </RadioGroup>
-          </FormControl>
-          <CommentBox>
-            <div className="comment-title">
-              <EditIcon />
-              <h2>추가 코맨트</h2>
-            </div>
-            <h3>{comment}</h3>
-          </CommentBox>
-        </CheckWriteBoxWrap>
-      </ThemeProvider>
-    </>
+    <CheckWriteBoxWrap>
+      <div className="catagory-title">
+        <div className="num-box">
+          <h5>{num}</h5>
+        </div>
+        <h4>{categoryName}</h4>
+      </div>
+      <div className="q-text">
+        <h3>
+          <span>Q.</span>
+          {qText}
+        </h3>
+      </div>
+      <FormControl>
+        <RadioGroup
+          row
+          aria-labelledby="demo-row-radio-buttons-group-label"
+          name="row-radio-buttons-group"
+          defaultValue={value}
+        >
+          {qtype == "1" ? (
+            <>
+              <StyledFormControlLabel
+                value="0"
+                disabled={value == "0" ? false : true}
+                control={<Radio />}
+                label="매우 많다(0)"
+              />
+              <StyledFormControlLabel
+                value="1"
+                disabled={value == "1" ? false : true}
+                control={<Radio />}
+                label="있는 편이다(1)"
+              />
+              <StyledFormControlLabel
+                value="3"
+                disabled={value == "3" ? false : true}
+                control={<Radio />}
+                label="없는 편이다(3)"
+              />
+              <StyledFormControlLabel
+                value="5"
+                disabled={value == "5" ? false : true}
+                control={<Radio />}
+                label="전혀 없다(5)"
+              />
+            </>
+          ) : (
+            <></>
+          )}
+          {qtype == "2" ? (
+            <>
+              <StyledFormControlLabel
+                value="0"
+                disabled={value == "0" ? false : true}
+                control={<Radio />}
+                label="매우 안된다(0)"
+              />
+              <StyledFormControlLabel
+                value="1"
+                disabled={value == "1" ? false : true}
+                control={<Radio />}
+                label="안되는 편이다(1)"
+              />
+              <StyledFormControlLabel
+                value="3"
+                disabled={value == "3" ? false : true}
+                control={<Radio />}
+                label="잘되는 편이다(3)"
+              />
+              <StyledFormControlLabel
+                value="5"
+                disabled={value == "5" ? false : true}
+                control={<Radio />}
+                label="매우 잘된다(5)"
+              />
+            </>
+          ) : (
+            <></>
+          )}
+          {qtype == "3" ? (
+            <>
+              <StyledFormControlLabel
+                value="0"
+                disabled={value == "0" ? false : true}
+                control={<Radio />}
+                label="매우 난다(0)"
+              />
+              <StyledFormControlLabel
+                value="1"
+                disabled={value == "1" ? false : true}
+                control={<Radio />}
+                label="나는 편이다(1)"
+              />
+              <StyledFormControlLabel
+                value="3"
+                disabled={value == "3" ? false : true}
+                control={<Radio />}
+                label="안나는 편이다(3)"
+              />
+              <StyledFormControlLabel
+                value="5"
+                disabled={value == "5" ? false : true}
+                control={<Radio />}
+                label="전혀 안난다(5)"
+              />
+            </>
+          ) : (
+            <></>
+          )}
+          {qtype == "4" ? (
+            <>
+              <StyledFormControlLabel
+                value="0"
+                disabled={value == "0" ? false : true}
+                control={<Radio />}
+                label="매우 나쁘다(0)"
+              />
+              <StyledFormControlLabel
+                value="1"
+                disabled={value == "1" ? false : true}
+                control={<Radio />}
+                label="나쁜 편이다(1)"
+              />
+              <StyledFormControlLabel
+                value="3"
+                disabled={value == "3" ? false : true}
+                control={<Radio />}
+                label="좋은 편이다(3)"
+              />
+              <StyledFormControlLabel
+                value="5"
+                disabled={value == "5" ? false : true}
+                control={<Radio />}
+                label="매우 좋다(5)"
+              />
+            </>
+          ) : (
+            <></>
+          )}
+          {qtype == "5" ? (
+            <>
+              <StyledFormControlLabel
+                value="0"
+                disabled={value == "0" ? false : true}
+                control={<Radio />}
+                label="매우 불편하다(0)"
+              />
+              <StyledFormControlLabel
+                value="1"
+                disabled={value == "1" ? false : true}
+                control={<Radio />}
+                label="불편한 편이다(1)"
+              />
+              <StyledFormControlLabel
+                value="3"
+                disabled={value == "3" ? false : true}
+                control={<Radio />}
+                label="편리한 편이다(3)"
+              />
+              <StyledFormControlLabel
+                value="5"
+                disabled={value == "5" ? false : true}
+                control={<Radio />}
+                label="매우 편리하다(5)"
+              />
+            </>
+          ) : (
+            <></>
+          )}
+          {qtype == "6" ? (
+            <>
+              <StyledFormControlLabel
+                value="0"
+                disabled={value == "0" ? false : true}
+                control={<Radio />}
+                label="절대 아니다(0)"
+              />
+              <StyledFormControlLabel
+                value="1"
+                disabled={value == "1" ? false : true}
+                control={<Radio />}
+                label="아니다(1)"
+              />
+              <StyledFormControlLabel
+                value="3"
+                disabled={value == "3" ? false : true}
+                control={<Radio />}
+                label="그렇다(3)"
+              />
+              <StyledFormControlLabel
+                value="5"
+                disabled={value == "5" ? false : true}
+                control={<Radio />}
+                label="매우 그렇다(5)"
+              />
+            </>
+          ) : (
+            <></>
+          )}
+        </RadioGroup>
+      </FormControl>
+      <CommentBox>
+        <div className="comment-title">
+          <EditIcon />
+          <h2>추가 코맨트</h2>
+        </div>
+        <h3>{comment}</h3>
+      </CommentBox>
+    </CheckWriteBoxWrap>
   );
 }
 

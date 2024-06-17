@@ -1,29 +1,14 @@
 import styled from "@emotion/styled";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import { Box } from "@mui/material";
 import * as React from "react";
 
 import theme from "../../../app/style/theme";
 
 export default function Title({ text }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <TitleWrap>
-          <h2>{text}</h2>
-        </TitleWrap>
-      </ThemeProvider>
-    </>
+    <TitleWrap>
+      <h2>{text}</h2>
+    </TitleWrap>
   );
 }
 

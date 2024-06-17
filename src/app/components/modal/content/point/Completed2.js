@@ -1,37 +1,24 @@
-import styled from "@emotion/styled";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import * as React from "react";
+"use client";
 
-import theme from "../../../../style/theme";
+import styled from "@emotion/styled";
+import { Box } from "@mui/material";
+import * as React from "react";
 
 import BasicBtn from "@/app/components/button/BasicBtn";
 
 export default function Completed2({ handleClose }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <CompletedWrap>
-          <h3>
-            공인중개사 검증단 등록이 완료되었습니다.
-            <br />
-            <strong>유효기간 : 2025.01.31 까지</strong>
-          </h3>
-        </CompletedWrap>
-        <ButtonWrap>
-          <BasicBtn text={"확인"} handleClick={handleClose} />
-        </ButtonWrap>
-      </ThemeProvider>
+      <CompletedWrap>
+        <h3>
+          공인중개사 검증단 등록이 완료되었습니다.
+          <br />
+          <strong>유효기간 : 2025.01.31 까지</strong>
+        </h3>
+      </CompletedWrap>
+      <ButtonWrap>
+        <BasicBtn text={"확인"} handleClick={handleClose} />
+      </ButtonWrap>
     </>
   );
 }

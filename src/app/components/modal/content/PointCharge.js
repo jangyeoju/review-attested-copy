@@ -1,6 +1,7 @@
+"use client";
+
 import styled from "@emotion/styled";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import { Box } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
@@ -9,99 +10,70 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import * as React from "react";
 
-import theme from "../../../../app/style/theme";
 import BasicBtn from "../../button/BasicBtn";
-import InputText from "../../input/InputText";
 import InputTextEnd from "../../input/InputTextEnd";
 
 export default function PointCharge({ handleClose }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
   const [alignment, setAlignment] = React.useState("web");
 
   const handleChange = (event, newAlignment) => {
     setAlignment(newAlignment);
   };
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <PointChargeWrap>
-          <ul>
-            <li>
-              <div className="text-box">
-                <h3>충전금액</h3>
-              </div>
-              <div className="charge-box">
-                <InputTextEnd InputAdornment={"원"} />
-                <StyledToggleButtonGroup
-                  color="primary"
-                  value={alignment}
-                  exclusive
-                  onChange={handleChange}
-                  aria-label="Platform"
-                >
-                  <StyledToggleButton value="10000">
-                    10,000원
-                  </StyledToggleButton>
-                  <StyledToggleButton value="30000">
-                    30,000원
-                  </StyledToggleButton>
-                  <StyledToggleButton value="50000">
-                    50,000원
-                  </StyledToggleButton>
-                  <StyledToggleButton value="100000">
-                    100,000원
-                  </StyledToggleButton>
-                  <StyledToggleButton value="300000">
-                    300,000원
-                  </StyledToggleButton>
-                  <StyledToggleButton value="500000">
-                    500,000원
-                  </StyledToggleButton>
-                </StyledToggleButtonGroup>
-              </div>
-            </li>
-            <li>
-              <div className="text-box">
-                <h3>결제 수단</h3>
-              </div>
-              <div className="text-box">
-                <FormControl>
-                  <StyledRadioGroup
-                    row
-                    aria-labelledby="demo-row-radio-buttons-group-label"
-                    name="row-radio-buttons-group"
-                  >
-                    <StyledFormControlLabel
-                      value="female"
-                      control={<Radio />}
-                      label="신용카드 결제"
-                    />
-                    <StyledFormControlLabel
-                      value="male"
-                      control={<Radio />}
-                      label="간편 결제"
-                    />
-                  </StyledRadioGroup>
-                </FormControl>
-              </div>
-            </li>
-          </ul>
-          <div className="bottom-btn">
-            <BasicBtn text={"결제"} handleClick={handleClose} />
+    <PointChargeWrap>
+      <ul>
+        <li>
+          <div className="text-box">
+            <h3>충전금액</h3>
           </div>
-        </PointChargeWrap>
-      </ThemeProvider>
-    </>
+          <div className="charge-box">
+            <InputTextEnd InputAdornment={"원"} />
+            <StyledToggleButtonGroup
+              color="primary"
+              value={alignment}
+              exclusive
+              onChange={handleChange}
+              aria-label="Platform"
+            >
+              <StyledToggleButton value="10000">10,000원</StyledToggleButton>
+              <StyledToggleButton value="30000">30,000원</StyledToggleButton>
+              <StyledToggleButton value="50000">50,000원</StyledToggleButton>
+              <StyledToggleButton value="100000">100,000원</StyledToggleButton>
+              <StyledToggleButton value="300000">300,000원</StyledToggleButton>
+              <StyledToggleButton value="500000">500,000원</StyledToggleButton>
+            </StyledToggleButtonGroup>
+          </div>
+        </li>
+        <li>
+          <div className="text-box">
+            <h3>결제 수단</h3>
+          </div>
+          <div className="text-box">
+            <FormControl>
+              <StyledRadioGroup
+                row
+                aria-labelledby="demo-row-radio-buttons-group-label"
+                name="row-radio-buttons-group"
+              >
+                <StyledFormControlLabel
+                  value="female"
+                  control={<Radio />}
+                  label="신용카드 결제"
+                />
+                <StyledFormControlLabel
+                  value="male"
+                  control={<Radio />}
+                  label="간편 결제"
+                />
+              </StyledRadioGroup>
+            </FormControl>
+          </div>
+        </li>
+      </ul>
+      <div className="bottom-btn">
+        <BasicBtn text={"결제"} handleClick={handleClose} />
+      </div>
+    </PointChargeWrap>
   );
 }
 

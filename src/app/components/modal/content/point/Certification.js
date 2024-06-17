@@ -1,33 +1,20 @@
-import styled from "@emotion/styled";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import * as React from "react";
+"use client";
 
-import theme from "../../../../../app/style/theme";
+import styled from "@emotion/styled";
+import { Box } from "@mui/material";
+import * as React from "react";
 
 import BasicBtn from "@/app/components/button/BasicBtn";
 
 export default function Certification({ handleClose }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <CertificationWrap>
-          <h3>본인인증이 필요합니다.</h3>
-        </CertificationWrap>
-        <ButtonWrap>
-          <BasicBtn text={"확인"} handleClick={handleClose} />
-        </ButtonWrap>
-      </ThemeProvider>
+      <CertificationWrap>
+        <h3>본인인증이 필요합니다.</h3>
+      </CertificationWrap>
+      <ButtonWrap>
+        <BasicBtn text={"확인"} handleClick={handleClose} />
+      </ButtonWrap>
     </>
   );
 }

@@ -1,24 +1,20 @@
 "use client";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+
+import styled from "@emotion/styled";
+import SaveAltIcon from "@mui/icons-material/SaveAlt";
+import StarIcon from "@mui/icons-material/Star";
+import { Box, Button } from "@mui/material";
+import { Divider } from "@mui/material";
 import Rating from "@mui/material/Rating";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import * as React from "react";
 import { useState } from "react";
 import "../../../style/global.css";
-import styled from "@emotion/styled";
-
-import theme from "../../../../app/style/theme";
 
 import AttestedCopyMobile from "@/app/components/attestedCopy/mobileView/page";
-import RoundCBtn from "@/app/components/button/RoundCBtn";
 import MobileBox from "@/app/components/layout/MobileBox";
 import MobileContainerBox from "@/app/components/layout/MobileContainerBox";
 import MobileNav from "@/app/components/nav/MobileNav";
-
-import SaveAltIcon from "@mui/icons-material/SaveAlt";
-import StarIcon from "@mui/icons-material/Star";
 
 const labels = {
   0.5: "0.5점",
@@ -38,92 +34,72 @@ function getLabelText(value) {
 }
 
 export default function VerificationProgress() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
-  const [alignment, setAlignment] = React.useState("실거주자");
+  const [alignment, setAlignment] = useState("실거주자");
 
   const handleChange = (event, newAlignment) => {
     setAlignment(newAlignment);
   };
 
-  const [value, setValue] = React.useState(2);
-  const [hover, setHover] = React.useState(-1);
+  const [value, setValue] = useState(2);
+  const [hover, setHover] = useState(-1);
 
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <MobileBox>
-          <MobileNav text={"검증 진행"} />
-          <MobileContainerBox>
-            <VerificationProgressWrap>
-              <AttestedCopyMobile type={"검증포기"} view={"none"} />
-              <Divider sx={{ mt: 3, mb: 3 }} />
-              <div className="button-wrap">
-                <StyledToggleButtonGroup
-                  color="primary"
-                  value={alignment}
-                  exclusive
-                  onChange={handleChange}
-                  aria-label="Platform"
-                >
-                  <StyledToggleButton value="실거주자">
-                    실거주자
-                  </StyledToggleButton>
-                  <StyledToggleButton value="공인중개사">
-                    공인중개사
-                  </StyledToggleButton>
-                </StyledToggleButtonGroup>
-                <Button variant="outlined" className="download-btn">
-                  다운로드
-                  <SaveAltIcon />
-                </Button>
+    <MobileBox>
+      <MobileNav text={"검증 진행"} />
+      <MobileContainerBox>
+        <VerificationProgressWrap>
+          <AttestedCopyMobile type={"검증포기"} view={"none"} />
+          <Divider sx={{ mt: 3, mb: 3 }} />
+          <div className="button-wrap">
+            <StyledToggleButtonGroup
+              color="primary"
+              value={alignment}
+              exclusive
+              onChange={handleChange}
+              aria-label="Platform"
+            >
+              <StyledToggleButton value="실거주자">실거주자</StyledToggleButton>
+              <StyledToggleButton value="공인중개사">
+                공인중개사
+              </StyledToggleButton>
+            </StyledToggleButtonGroup>
+            <Button variant="outlined" className="download-btn">
+              다운로드
+              <SaveAltIcon />
+            </Button>
+          </div>
+          <OpinionBox>
+            <div className="title">
+              <h2>1. 종합의견</h2>
+              <div className="rating-box">
+                {/* <Rating name="half-rating" defaultValue={2.5} precision={0.5}/> */}
+                <Rating
+                  name="hover-feedback"
+                  value={value}
+                  precision={0.5}
+                  getLabelText={getLabelText}
+                  onChange={(event, newValue) => {
+                    setValue(newValue);
+                  }}
+                  onChangeActive={(event, newHover) => {
+                    setHover(newHover);
+                  }}
+                  emptyIcon={
+                    <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
+                  }
+                />
+                {value !== null && (
+                  <h3>{labels[hover !== -1 ? hover : value]}</h3>
+                )}
               </div>
-              <OpinionBox>
-                <div className="title">
-                  <h2>1. 종합의견</h2>
-                  <div className="rating-box">
-                    {/* <Rating name="half-rating" defaultValue={2.5} precision={0.5}/> */}
-                    <Rating
-                      name="hover-feedback"
-                      value={value}
-                      precision={0.5}
-                      getLabelText={getLabelText}
-                      onChange={(event, newValue) => {
-                        setValue(newValue);
-                      }}
-                      onChangeActive={(event, newHover) => {
-                        setHover(newHover);
-                      }}
-                      emptyIcon={
-                        <StarIcon
-                          style={{ opacity: 0.55 }}
-                          fontSize="inherit"
-                        />
-                      }
-                    />
-                    {value !== null && (
-                      <h3>{labels[hover !== -1 ? hover : value]}</h3>
-                    )}
-                  </div>
-                </div>
-                <div className="content">
-                  <h3>종합의견 블라블라...</h3>
-                </div>
-              </OpinionBox>
-            </VerificationProgressWrap>
-          </MobileContainerBox>
-        </MobileBox>
-      </ThemeProvider>
-    </>
+            </div>
+            <div className="content">
+              <h3>종합의견 블라블라...</h3>
+            </div>
+          </OpinionBox>
+        </VerificationProgressWrap>
+      </MobileContainerBox>
+    </MobileBox>
   );
 }
 

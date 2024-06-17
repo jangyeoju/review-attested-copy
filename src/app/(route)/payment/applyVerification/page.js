@@ -1,7 +1,6 @@
 "use client";
 import styled from "@emotion/styled";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import { Box } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
@@ -15,26 +14,11 @@ import Nav from "../../../components/nav/Nav";
 import AttestedCopy from "@/app/components/attestedCopy/attestedCopy";
 import BasicBtn from "@/app/components/button/BasicBtn";
 import BasicSBtn from "@/app/components/button/BasicSBtn";
-import InputText from "@/app/components/input/InputText";
-import InputTextEnd from "@/app/components/input/InputTextEnd";
 import ContainerBox from "@/app/components/layout/ContainerBox";
 import BasicModal from "@/app/components/modal/BasicModal";
 import Title from "@/app/components/title/Title";
 
-
-
 export default function ApplyVerificationPayment() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -47,97 +31,95 @@ export default function ApplyVerificationPayment() {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <Nav />
-        <ContainerBox>
-          <Title text={"결제하기"} />
-          <PaymentWrap>
-            <LeftBox>
-              <ReviewBox>
-                <AttestedCopy
-                  tag1={true}
-                  tag2={true}
-                  tag3={true}
-                  price={"3,300원"}
-                />
-              </ReviewBox>
-              <div className="search-result">
-                <h2>
-                  사무소 : <span>홍길동 사무소 (02-333-4444)</span>
-                </h2>
-                <h2>
-                  공인중개사 : <span>홍길동 </span>{" "}
-                </h2>
-                <h2>
-                  주소 : <span>서울시 강남구 논현동222</span>
-                </h2>
-              </div>
-              <div className="price-box">
-                <h3>결제금액</h3>
-                <h2>
-                  165,000<span>원</span>
-                </h2>
-              </div>
-            </LeftBox>
-            <PaymentBox>
-              <ul>
-                <li>
+      <Nav />
+      <ContainerBox>
+        <Title text={"결제하기"} />
+        <PaymentWrap>
+          <LeftBox>
+            <ReviewBox>
+              <AttestedCopy
+                tag1={true}
+                tag2={true}
+                tag3={true}
+                price={"3,300원"}
+              />
+            </ReviewBox>
+            <div className="search-result">
+              <h2>
+                사무소 : <span>홍길동 사무소 (02-333-4444)</span>
+              </h2>
+              <h2>
+                공인중개사 : <span>홍길동 </span>{" "}
+              </h2>
+              <h2>
+                주소 : <span>서울시 강남구 논현동222</span>
+              </h2>
+            </div>
+            <div className="price-box">
+              <h3>결제금액</h3>
+              <h2>
+                165,000<span>원</span>
+              </h2>
+            </div>
+          </LeftBox>
+          <PaymentBox>
+            <ul>
+              <li>
+                <div className="coupon-list">
                   <div className="coupon-list">
-                    <div className="coupon-list">
-                      <div className="text-box">
-                        <h3>결제할 금액</h3>
-                      </div>
-                      <div className="text-box">
-                        <h2>
-                          165,500<span>원</span>
-                        </h2>
-                      </div>
+                    <div className="text-box">
+                      <h3>결제할 금액</h3>
+                    </div>
+                    <div className="text-box">
+                      <h2>
+                        165,500<span>원</span>
+                      </h2>
                     </div>
                   </div>
+                </div>
+                <div className="coupon-list">
                   <div className="coupon-list">
-                    <div className="coupon-list">
-                      <div className="text-box">
-                        <h3>결제 수단</h3>
-                      </div>
-                      <div className="text-box">
-                        <FormControl>
-                          <StyledRadioGroup
-                            row
-                            aria-labelledby="demo-row-radio-buttons-group-label"
-                            name="row-radio-buttons-group"
-                          >
-                            <StyledFormControlLabel
-                              value="female"
-                              control={<Radio />}
-                              label="신용카드 결제"
-                            />
-                            <StyledFormControlLabel
-                              value="male"
-                              control={<Radio />}
-                              label="간편 결제"
-                            />
-                          </StyledRadioGroup>
-                        </FormControl>
-                      </div>
+                    <div className="text-box">
+                      <h3>결제 수단</h3>
+                    </div>
+                    <div className="text-box">
+                      <FormControl>
+                        <StyledRadioGroup
+                          row
+                          aria-labelledby="demo-row-radio-buttons-group-label"
+                          name="row-radio-buttons-group"
+                        >
+                          <StyledFormControlLabel
+                            value="female"
+                            control={<Radio />}
+                            label="신용카드 결제"
+                          />
+                          <StyledFormControlLabel
+                            value="male"
+                            control={<Radio />}
+                            label="간편 결제"
+                          />
+                        </StyledRadioGroup>
+                      </FormControl>
                     </div>
                   </div>
-                </li>
-              </ul>
-              <ButtonWrap>
-                <BasicSBtn text={"취소"} />
-                <BasicBtn text={"결제"} handleClick={handleClickOpen} />
-                <BasicModal
-                  handleClose={handleClose}
-                  open={open}
-                  title={"검증신청 완료"}
-                  content={"검증신청완료"}
-                />
-              </ButtonWrap>
-            </PaymentBox>
-          </PaymentWrap>
-        </ContainerBox>
-        <Footer />
-      </ThemeProvider>
+                </div>
+              </li>
+            </ul>
+            <ButtonWrap>
+              <BasicSBtn text={"취소"} />
+              <BasicBtn text={"결제"} handleClick={handleClickOpen} />
+              <BasicModal
+                handleClose={handleClose}
+                open={open}
+                title={"검증신청 완료"}
+                content={"검증신청완료"}
+              />
+            </ButtonWrap>
+          </PaymentBox>
+        </PaymentWrap>
+      </ContainerBox>
+      <Footer />
     </>
   );
 }

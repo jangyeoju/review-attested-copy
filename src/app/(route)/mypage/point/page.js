@@ -1,12 +1,9 @@
 "use client";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import * as React from "react";
+
+import styled from "@emotion/styled";
+import { Box } from "@mui/material";
 import { useState } from "react";
 import "../../../style/global.css";
-import styled from "@emotion/styled";
-
-import theme from "../../../../app/style/theme";
 
 import BasicBtn from "@/app/components/button/BasicBtn";
 import MobileBox from "@/app/components/layout/MobileBox";
@@ -14,18 +11,7 @@ import BasicModal from "@/app/components/modal/BasicModal";
 import MobileNav from "@/app/components/nav/MobileNav";
 
 export default function Point() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -35,7 +21,7 @@ export default function Point() {
     setOpen(false);
   };
 
-  const [open2, setOpen2] = React.useState(false);
+  const [open2, setOpen2] = useState(false);
 
   const handleClickOpen2 = () => {
     setOpen2(true);
@@ -45,7 +31,7 @@ export default function Point() {
     setOpen2(false);
   };
 
-  const [open3, setOpen3] = React.useState(false);
+  const [open3, setOpen3] = useState(false);
 
   const handleClickOpen3 = () => {
     setOpen3(true);
@@ -55,7 +41,7 @@ export default function Point() {
     setOpen3(false);
   };
 
-  const [open4, setOpen4] = React.useState(false);
+  const [open4, setOpen4] = useState(false);
 
   const handleClickOpen4 = () => {
     setOpen4(true);
@@ -65,7 +51,7 @@ export default function Point() {
     setOpen4(false);
   };
 
-  const [open5, setOpen5] = React.useState(false);
+  const [open5, setOpen5] = useState(false);
 
   const handleClickOpen5 = () => {
     setOpen5(true);
@@ -75,7 +61,7 @@ export default function Point() {
     setOpen5(false);
   };
 
-  const [open6, setOpen6] = React.useState(false);
+  const [open6, setOpen6] = useState(false);
 
   const handleClickOpen6 = () => {
     setOpen6(true);
@@ -85,7 +71,7 @@ export default function Point() {
     setOpen6(false);
   };
 
-  const [openModal, setOpenModal] = React.useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   const handleClickModal = () => {
     setOpenModal(true);
@@ -95,7 +81,7 @@ export default function Point() {
     setOpenModal(false);
   };
 
-  const [openModal2, setOpenModal2] = React.useState(false);
+  const [openModal2, setOpenModal2] = useState(false);
 
   const handleClickModal2 = () => {
     setOpenModal2(true);
@@ -106,149 +92,145 @@ export default function Point() {
   };
 
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <MobileBox>
-          <MobileNav text={"포인트"} />
-          <PointWrap>
-            <div className="point-box">
-              <h5>사용가능 포인트</h5>
-              <h2>
-                10,000,000 <span>원</span>
-              </h2>
-              <div className="button-wrap">
-                <BasicBtn
-                  text={"인출"}
-                  color={"error"}
-                  handleClick={handleClickModal}
-                />
-                {/* 
+    <MobileBox>
+      <MobileNav text={"포인트"} />
+      <PointWrap>
+        <div className="point-box">
+          <h5>사용가능 포인트</h5>
+          <h2>
+            10,000,000 <span>원</span>
+          </h2>
+          <div className="button-wrap">
+            <BasicBtn
+              text={"인출"}
+              color={"error"}
+              handleClick={handleClickModal}
+            />
+            {/* 
                                     본인인증 모달
                                     <BasicModal handleClose={handleCloseModal} open={openModal} title={"본인인증"} content={"본인인증"} /> 
                                 */}
-                <BasicModal
-                  handleClose={handleCloseModal}
-                  open={openModal}
-                  title={"인출"}
-                  content={"인출"}
-                />
+            <BasicModal
+              handleClose={handleCloseModal}
+              open={openModal}
+              title={"인출"}
+              content={"인출"}
+            />
 
-                <BasicBtn text={"충전"} handleClick={handleClickModal2} />
-                <BasicModal
-                  handleClose={handleCloseModal2}
-                  open={openModal2}
-                  title={"포인트 충전"}
-                  content={"포인트충전"}
-                />
+            <BasicBtn text={"충전"} handleClick={handleClickModal2} />
+            <BasicModal
+              handleClose={handleCloseModal2}
+              open={openModal2}
+              title={"포인트 충전"}
+              content={"포인트충전"}
+            />
+          </div>
+        </div>
+      </PointWrap>
+      <PointList>
+        <div className="point-list">
+          <div className="day">
+            <Date>
+              <h5>2024-01-05</h5>
+            </Date>
+            <DetailPoint onClick={handleClickOpen}>
+              <div className="point-name">
+                <h3>후기 판매 수익</h3>
+                <p>10:45</p>
               </div>
-            </div>
-          </PointWrap>
-          <PointList>
-            <div className="point-list">
-              <div className="day">
-                <Date>
-                  <h5>2024-01-05</h5>
-                </Date>
-                <DetailPoint onClick={handleClickOpen}>
-                  <div className="point-name">
-                    <h3>후기 판매 수익</h3>
-                    <p>10:45</p>
-                  </div>
-                  <h3 className="plus">+ 1,800 원</h3>
-                </DetailPoint>
-                <BasicModal
-                  handleClose={handleClose}
-                  open={open}
-                  title={"상세내역"}
-                  content={"상세내역"}
-                  subTitle={"후기 판매 수익"}
-                />
+              <h3 className="plus">+ 1,800 원</h3>
+            </DetailPoint>
+            <BasicModal
+              handleClose={handleClose}
+              open={open}
+              title={"상세내역"}
+              content={"상세내역"}
+              subTitle={"후기 판매 수익"}
+            />
 
-                <DetailPoint onClick={handleClickOpen2}>
-                  <div className="point-name">
-                    <h3>포인트 인출</h3>
-                    <p>10:45</p>
-                  </div>
-                  <h3 className="minus">- 1,800 원</h3>
-                </DetailPoint>
-                <BasicModal
-                  handleClose={handleClose2}
-                  open={open2}
-                  title={"상세내역"}
-                  content={"상세내역"}
-                  subTitle={"포인트 인출"}
-                />
-
-                <DetailPoint onClick={handleClickOpen3}>
-                  <div className="point-name">
-                    <h3>팔로워 수익</h3>
-                    <p>10:45</p>
-                  </div>
-                  <h3 className="plus">+ 1,800 원</h3>
-                </DetailPoint>
-                <BasicModal
-                  handleClose={handleClose3}
-                  open={open3}
-                  title={"상세내역"}
-                  content={"상세내역"}
-                  subTitle={"팔로워 수익"}
-                />
+            <DetailPoint onClick={handleClickOpen2}>
+              <div className="point-name">
+                <h3>포인트 인출</h3>
+                <p>10:45</p>
               </div>
-              <div className="day">
-                <Date>
-                  <h5>2024-01-05</h5>
-                </Date>
-                <DetailPoint onClick={handleClickOpen4}>
-                  <div className="point-name">
-                    <h3>포인트 충전</h3>
-                    <p>10:45</p>
-                  </div>
-                  <h3 className="plus">+ 1,800 원</h3>
-                </DetailPoint>
-                <BasicModal
-                  handleClose={handleClose4}
-                  open={open4}
-                  title={"상세내역"}
-                  content={"상세내역"}
-                  subTitle={"포인트 충전"}
-                />
+              <h3 className="minus">- 1,800 원</h3>
+            </DetailPoint>
+            <BasicModal
+              handleClose={handleClose2}
+              open={open2}
+              title={"상세내역"}
+              content={"상세내역"}
+              subTitle={"포인트 인출"}
+            />
 
-                <DetailPoint onClick={handleClickOpen5}>
-                  <div className="point-name">
-                    <h3>포인트 충전</h3>
-                    <p>10:45</p>
-                  </div>
-                  <h3 className="plus">+ 1,800 원</h3>
-                </DetailPoint>
-                <BasicModal
-                  handleClose={handleClose5}
-                  open={open5}
-                  title={"상세내역"}
-                  content={"상세내역"}
-                  subTitle={"포인트 충전"}
-                  receipt={true}
-                />
-
-                <DetailPoint onClick={handleClickOpen6}>
-                  <div className="point-name">
-                    <h3>후기조회비</h3>
-                    <p>10:45</p>
-                  </div>
-                  <h3 className="minus">- 1,800 원</h3>
-                </DetailPoint>
-                <BasicModal
-                  handleClose={handleClose6}
-                  open={open6}
-                  title={"상세내역"}
-                  content={"상세내역"}
-                  subTitle={"후기 조회비"}
-                />
+            <DetailPoint onClick={handleClickOpen3}>
+              <div className="point-name">
+                <h3>팔로워 수익</h3>
+                <p>10:45</p>
               </div>
-            </div>
-          </PointList>
-        </MobileBox>
-      </ThemeProvider>
-    </>
+              <h3 className="plus">+ 1,800 원</h3>
+            </DetailPoint>
+            <BasicModal
+              handleClose={handleClose3}
+              open={open3}
+              title={"상세내역"}
+              content={"상세내역"}
+              subTitle={"팔로워 수익"}
+            />
+          </div>
+          <div className="day">
+            <Date>
+              <h5>2024-01-05</h5>
+            </Date>
+            <DetailPoint onClick={handleClickOpen4}>
+              <div className="point-name">
+                <h3>포인트 충전</h3>
+                <p>10:45</p>
+              </div>
+              <h3 className="plus">+ 1,800 원</h3>
+            </DetailPoint>
+            <BasicModal
+              handleClose={handleClose4}
+              open={open4}
+              title={"상세내역"}
+              content={"상세내역"}
+              subTitle={"포인트 충전"}
+            />
+
+            <DetailPoint onClick={handleClickOpen5}>
+              <div className="point-name">
+                <h3>포인트 충전</h3>
+                <p>10:45</p>
+              </div>
+              <h3 className="plus">+ 1,800 원</h3>
+            </DetailPoint>
+            <BasicModal
+              handleClose={handleClose5}
+              open={open5}
+              title={"상세내역"}
+              content={"상세내역"}
+              subTitle={"포인트 충전"}
+              receipt={true}
+            />
+
+            <DetailPoint onClick={handleClickOpen6}>
+              <div className="point-name">
+                <h3>후기조회비</h3>
+                <p>10:45</p>
+              </div>
+              <h3 className="minus">- 1,800 원</h3>
+            </DetailPoint>
+            <BasicModal
+              handleClose={handleClose6}
+              open={open6}
+              title={"상세내역"}
+              content={"상세내역"}
+              subTitle={"후기 조회비"}
+            />
+          </div>
+        </div>
+      </PointList>
+    </MobileBox>
   );
 }
 

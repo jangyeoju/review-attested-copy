@@ -1,24 +1,14 @@
+"use client";
+
 import styled from "@emotion/styled";
 import SearchIcon from "@mui/icons-material/Search";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import { Box } from "@mui/material";
 import * as React from "react";
 
 import theme from "../../../app/style/theme";
 
 import RedSBtn from "@/app/components/button/RedSBtn";
 export default function SearchList({ handleClose }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
   const [close, setClose] = React.useState(false);
 
   const handleClickClose = () => {
@@ -58,71 +48,67 @@ export default function SearchList({ handleClose }) {
   };
 
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <SearchListWrap>
-          {!close ? (
-            <SearchResultBox>
-              <div className="result-name">
-                <SearchIcon />
-                <h2>강남대로</h2>
-              </div>
-              <RedSBtn text={"삭제"} handleClick={handleClickClose} />
-            </SearchResultBox>
-          ) : (
-            <></>
-          )}
-          {!close2 ? (
-            <SearchResultBox>
-              <div className="result-name">
-                <SearchIcon />
-                <h2>한강아파트</h2>
-              </div>
-              <RedSBtn text={"삭제"} handleClick={handleClickClose2} />
-            </SearchResultBox>
-          ) : (
-            <></>
-          )}
-          {!close3 ? (
-            <SearchResultBox>
-              <div className="result-name">
-                <SearchIcon />
-                <h2>부산시</h2>
-              </div>
-              <RedSBtn text={"삭제"} handleClick={handleClickClose3} />
-            </SearchResultBox>
-          ) : (
-            <></>
-          )}
-          {!close4 ? (
-            <SearchResultBox>
-              <div className="result-name">
-                <SearchIcon />
-                <h2>분당구</h2>
-              </div>
-              <RedSBtn text={"삭제"} handleClick={handleClickClose4} />
-            </SearchResultBox>
-          ) : (
-            <></>
-          )}
-          {!close5 ? (
-            <SearchResultBox>
-              <div className="result-name">
-                <SearchIcon />
-                <h2>논현동</h2>
-              </div>
-              <RedSBtn text={"삭제"} handleClick={handleClickClose5} />
-            </SearchResultBox>
-          ) : (
-            <></>
-          )}
-          <div className="action-wrap">
-            <button onClick={handleClickAll}>전체 삭제</button>
-            <button onClick={handleClose}>닫기</button>
+    <SearchListWrap>
+      {!close ? (
+        <SearchResultBox>
+          <div className="result-name">
+            <SearchIcon />
+            <h2>강남대로</h2>
           </div>
-        </SearchListWrap>
-      </ThemeProvider>
-    </>
+          <RedSBtn text={"삭제"} handleClick={handleClickClose} />
+        </SearchResultBox>
+      ) : (
+        <></>
+      )}
+      {!close2 ? (
+        <SearchResultBox>
+          <div className="result-name">
+            <SearchIcon />
+            <h2>한강아파트</h2>
+          </div>
+          <RedSBtn text={"삭제"} handleClick={handleClickClose2} />
+        </SearchResultBox>
+      ) : (
+        <></>
+      )}
+      {!close3 ? (
+        <SearchResultBox>
+          <div className="result-name">
+            <SearchIcon />
+            <h2>부산시</h2>
+          </div>
+          <RedSBtn text={"삭제"} handleClick={handleClickClose3} />
+        </SearchResultBox>
+      ) : (
+        <></>
+      )}
+      {!close4 ? (
+        <SearchResultBox>
+          <div className="result-name">
+            <SearchIcon />
+            <h2>분당구</h2>
+          </div>
+          <RedSBtn text={"삭제"} handleClick={handleClickClose4} />
+        </SearchResultBox>
+      ) : (
+        <></>
+      )}
+      {!close5 ? (
+        <SearchResultBox>
+          <div className="result-name">
+            <SearchIcon />
+            <h2>논현동</h2>
+          </div>
+          <RedSBtn text={"삭제"} handleClick={handleClickClose5} />
+        </SearchResultBox>
+      ) : (
+        <></>
+      )}
+      <div className="action-wrap">
+        <button onClick={handleClickAll}>전체 삭제</button>
+        <button onClick={handleClose}>닫기</button>
+      </div>
+    </SearchListWrap>
   );
 }
 

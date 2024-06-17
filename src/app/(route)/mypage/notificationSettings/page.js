@@ -1,13 +1,9 @@
 "use client";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import Switch from "@mui/material/Switch";
-import * as React from "react";
-import { useState } from "react";
-import "../../../style/global.css";
-import styled from "@emotion/styled";
 
-import theme from "../../../../app/style/theme";
+import styled from "@emotion/styled";
+import { Box } from "@mui/material";
+import Switch from "@mui/material/Switch";
+import "../../../style/global.css";
 
 import MobileBox from "@/app/components/layout/MobileBox";
 import MobileContainerBox from "@/app/components/layout/MobileContainerBox";
@@ -16,65 +12,51 @@ import MobileNav from "@/app/components/nav/MobileNav";
 const label = { inputProps: { "aria-label": "Switch demo" } };
 
 export default function NotificationSettings() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <MobileBox>
-          <MobileNav text={"알림설정"} />
-          <MobileContainerBox>
-            <SettingWrap>
-              <ul>
-                <li>
-                  <h2>후기부등본 등록/반려</h2>
-                  <div className="setting-box">
-                    <h3>실거주 후기부등본 등록</h3>
-                    <Switch {...label} />
-                  </div>
-                  <div className="setting-box">
-                    <h3>실거주 후기부등본 반려</h3>
-                    <Switch {...label} />
-                  </div>
-                </li>
-                <li>
-                  <h2>후기부등본 조회</h2>
-                  <div className="setting-box">
-                    <h3>내 유료 후기부등본 조회</h3>
-                    <Switch {...label} />
-                  </div>
-                </li>
-                <li>
-                  <h2>후기부등본 검증</h2>
-                  <div className="setting-box">
-                    <h3>검증진행 (진행, 거절, 완료)</h3>
-                    <Switch {...label} />
-                  </div>
-                  <div className="setting-box">
-                    <h3>검증접수(공인중개사)</h3>
-                    <Switch {...label} defaultChecked />
-                  </div>
-                </li>
-                <li>
-                  <div className="setting-box">
-                    <h2>이벤트 / 광고</h2>
-                    <Switch {...label} />
-                  </div>
-                </li>
-              </ul>
-            </SettingWrap>
-          </MobileContainerBox>
-        </MobileBox>
-      </ThemeProvider>
-    </>
+    <MobileBox>
+      <MobileNav text={"알림설정"} />
+      <MobileContainerBox>
+        <SettingWrap>
+          <ul>
+            <li>
+              <h2>후기부등본 등록/반려</h2>
+              <div className="setting-box">
+                <h3>실거주 후기부등본 등록</h3>
+                <Switch {...label} />
+              </div>
+              <div className="setting-box">
+                <h3>실거주 후기부등본 반려</h3>
+                <Switch {...label} />
+              </div>
+            </li>
+            <li>
+              <h2>후기부등본 조회</h2>
+              <div className="setting-box">
+                <h3>내 유료 후기부등본 조회</h3>
+                <Switch {...label} />
+              </div>
+            </li>
+            <li>
+              <h2>후기부등본 검증</h2>
+              <div className="setting-box">
+                <h3>검증진행 (진행, 거절, 완료)</h3>
+                <Switch {...label} />
+              </div>
+              <div className="setting-box">
+                <h3>검증접수(공인중개사)</h3>
+                <Switch {...label} defaultChecked />
+              </div>
+            </li>
+            <li>
+              <div className="setting-box">
+                <h2>이벤트 / 광고</h2>
+                <Switch {...label} />
+              </div>
+            </li>
+          </ul>
+        </SettingWrap>
+      </MobileContainerBox>
+    </MobileBox>
   );
 }
 

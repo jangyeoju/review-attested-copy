@@ -1,36 +1,23 @@
-import styled from "@emotion/styled";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import * as React from "react";
+"use client";
 
-import theme from "../../../style/theme";
+import styled from "@emotion/styled";
+import { Box } from "@mui/material";
+import * as React from "react";
 
 import BasicBtn from "@/app/components/button/BasicBtn";
 
 export default function WithdrawalCompleted({ handleClose }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <NoticeWrap>
-          <h3>
-            회원탈퇴 처리되었습니다. <br />
-            이용해 주셔서 감사합니다.
-          </h3>
-        </NoticeWrap>
-        <ButtonWrap>
-          <BasicBtn text={"확인"} handleClick={handleClose} />
-        </ButtonWrap>
-      </ThemeProvider>
+      <NoticeWrap>
+        <h3>
+          회원탈퇴 처리되었습니다. <br />
+          이용해 주셔서 감사합니다.
+        </h3>
+      </NoticeWrap>
+      <ButtonWrap>
+        <BasicBtn text={"확인"} handleClick={handleClose} />
+      </ButtonWrap>
     </>
   );
 }

@@ -1,20 +1,15 @@
 "use client";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+
+import styled from "@emotion/styled";
+import { Box } from "@mui/material";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
-import Typography from "@mui/material/Typography";
-import PropTypes from "prop-types";
-import * as React from "react";
-import { useState } from "react";
 import "../../../style/global.css";
-import styled from "@emotion/styled";
-
-import theme from "../../../../app/style/theme";
+import PropTypes from "prop-types";
+import { useState } from "react";
 
 import AttestedCopyMobile from "@/app/components/attestedCopy/mobileView/page";
 import MobileBox from "@/app/components/layout/MobileBox";
-import MobileContainerBox from "@/app/components/layout/MobileContainerBox";
 import MobileNav from "@/app/components/nav/MobileNav";
 
 function CustomTabPanel(props) {
@@ -51,89 +46,74 @@ function a11yProps(index) {
 }
 
 export default function VerificationList() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <MobileBox>
-          <MobileNav text={"검증 후기부등본"} />
-          <TabListWrap>
-            <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-              <StyledTabs
-                value={value}
-                onChange={handleChange}
-                aria-label="basic tabs example"
-              >
-                <StyledTab label="접수" {...a11yProps(0)} />
-                <StyledTab label="진행" {...a11yProps(1)} />
-                <StyledTab label="완료" {...a11yProps(2)} />
-                <StyledTab label="거절" {...a11yProps(3)} />
-              </StyledTabs>
-            </Box>
-            <StyledCustomTabPanel value={value} index={0}>
-              <h3 className="all-num">총 000건</h3>
-              <div className="list">
-                <AttestedCopyMobile type={"거절수락"} view={"none"} />
-                <AttestedCopyMobile type={"거절수락"} view={"none"} />
-                {/* 
+    <MobileBox>
+      <MobileNav text={"검증 후기부등본"} />
+      <TabListWrap>
+        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <StyledTabs
+            value={value}
+            onChange={handleChange}
+            aria-label="basic tabs example"
+          >
+            <StyledTab label="접수" {...a11yProps(0)} />
+            <StyledTab label="진행" {...a11yProps(1)} />
+            <StyledTab label="완료" {...a11yProps(2)} />
+            <StyledTab label="거절" {...a11yProps(3)} />
+          </StyledTabs>
+        </Box>
+        <StyledCustomTabPanel value={value} index={0}>
+          <h3 className="all-num">총 000건</h3>
+          <div className="list">
+            <AttestedCopyMobile type={"거절수락"} view={"none"} />
+            <AttestedCopyMobile type={"거절수락"} view={"none"} />
+            {/* 
                                     등록된 후기부등본 없을때
                                     <h2 className="none">접수 된 후기부등본이 없습니다.</h2>
                                  */}
-              </div>
-            </StyledCustomTabPanel>
-            <StyledCustomTabPanel value={value} index={1}>
-              <h3 className="all-num">총 000건</h3>
-              <div className="list">
-                <AttestedCopyMobile type={"검증진행"} view={"none"} />
-                <AttestedCopyMobile type={"검증진행"} view={"none"} />
-                {/* 
+          </div>
+        </StyledCustomTabPanel>
+        <StyledCustomTabPanel value={value} index={1}>
+          <h3 className="all-num">총 000건</h3>
+          <div className="list">
+            <AttestedCopyMobile type={"검증진행"} view={"none"} />
+            <AttestedCopyMobile type={"검증진행"} view={"none"} />
+            {/* 
                                     작성완료 된 후기부등본 없을때
                                     <h2 className="none">진행 된 후기부등본이 없습니다.</h2>
                                  */}
-              </div>
-            </StyledCustomTabPanel>
-            <StyledCustomTabPanel value={value} index={2}>
-              <h3 className="all-num">총 000건</h3>
-              <div className="list">
-                <AttestedCopyMobile type={"검증완료"} view={"none"} />
-                <AttestedCopyMobile type={"검증완료"} view={"none"} />
-                {/* 
+          </div>
+        </StyledCustomTabPanel>
+        <StyledCustomTabPanel value={value} index={2}>
+          <h3 className="all-num">총 000건</h3>
+          <div className="list">
+            <AttestedCopyMobile type={"검증완료"} view={"none"} />
+            <AttestedCopyMobile type={"검증완료"} view={"none"} />
+            {/* 
                                     검토중인 후기부등본 없을때
                                     <h2 className="none">검증완료 후기부등본이 없습니다.</h2>
                                  */}
-              </div>
-            </StyledCustomTabPanel>
-            <StyledCustomTabPanel value={value} index={3}>
-              <h3 className="all-num">총 000건</h3>
-              <div className="list">
-                <AttestedCopyMobile type={"작성중"} view={"none"} />
-                <AttestedCopyMobile type={"작성중"} view={"none"} />
-                {/* 
+          </div>
+        </StyledCustomTabPanel>
+        <StyledCustomTabPanel value={value} index={3}>
+          <h3 className="all-num">총 000건</h3>
+          <div className="list">
+            <AttestedCopyMobile type={"작성중"} view={"none"} />
+            <AttestedCopyMobile type={"작성중"} view={"none"} />
+            {/* 
                                     반려 된 후기부등본 없을때
                                     <h2 className="none">반려 된 후기부등본이 없습니다.</h2>
                                  */}
-              </div>
-            </StyledCustomTabPanel>
-          </TabListWrap>
-        </MobileBox>
-      </ThemeProvider>
-    </>
+          </div>
+        </StyledCustomTabPanel>
+      </TabListWrap>
+    </MobileBox>
   );
 }
 

@@ -1,111 +1,95 @@
-import styled from "@emotion/styled";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import * as React from "react";
+"use client";
 
-import theme from "../../../../../app/style/theme";
+import styled from "@emotion/styled";
+import { Box } from "@mui/material";
+import * as React from "react";
 
 import BasicBtn from "@/app/components/button/BasicBtn";
 
 export default function Detail({ title, receipt }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <DetailWrap>
-          <div className="point-info">
-            <h2>{title}</h2>
-            {title == "포인트 인출" || title == "후기 조회비" ? (
-              <h3 className="minus">- 1,800원</h3>
-            ) : (
-              <h3>+ 1,800 원</h3>
-            )}
-          </div>
-          <div className="content">
-            <div className="title">
-              <h3>내용</h3>
-            </div>
-            {title == "포인트 충전" && !receipt ? (
-              <p>포인트 충전</p>
-            ) : title == "포인트 충전" && receipt ? (
-              <p>결제수단 국민 신용카드(5150)</p>
-            ) : (
-              <p>서울시 강남구 논현동 120-210호</p>
-            )}
-          </div>
-          <ul className="content-detail">
-            {title == "포인트 충전" && !receipt ? (
-              <>
-                <li>
-                  <h4>결제수단</h4>
-                  <h4>국민 신용카드(5150)</h4>
-                </li>
-                <li>
-                  <h4>일시</h4>
-                  <h4>2023-07-31 10:45</h4>
-                </li>
-              </>
-            ) : title == "포인트 충전" && receipt ? (
-              <>
-                <li>
-                  <h4>일시</h4>
-                  <h4>2023-07-31 10:45</h4>
-                </li>
-              </>
-            ) : title == "포인트 인출" ? (
-              <>
-                <li>
-                  <h4>입금처</h4>
-                  <h4>홍길동</h4>
-                </li>
-                <li>
-                  <h4>계좌</h4>
-                  <h4>국민은행(000—1—1--)</h4>
-                </li>
-                <li>
-                  <h4>일시</h4>
-                  <h4>2023-07-31 10:45</h4>
-                </li>
-              </>
-            ) : (
-              <>
-                <li>
-                  <h4>판매가</h4>
-                  <h4>
-                    3,300 <span>원</span>
-                  </h4>
-                </li>
-                <li>
-                  <h4>판매자</h4>
-                  <h4>심사임당</h4>
-                </li>
-                <li>
-                  <h4>일시</h4>
-                  <h4>2023-07-31 10:45</h4>
-                </li>
-              </>
-            )}
-          </ul>
-          {title == "포인트 충전" && receipt ? (
-            <div className="btn-wrap">
-              <BasicBtn text={"온라인 영수증"} href={"/mypage/receipt"} />
-            </div>
-          ) : (
-            <></>
-          )}
-        </DetailWrap>
-      </ThemeProvider>
-    </>
+    <DetailWrap>
+      <div className="point-info">
+        <h2>{title}</h2>
+        {title == "포인트 인출" || title == "후기 조회비" ? (
+          <h3 className="minus">- 1,800원</h3>
+        ) : (
+          <h3>+ 1,800 원</h3>
+        )}
+      </div>
+      <div className="content">
+        <div className="title">
+          <h3>내용</h3>
+        </div>
+        {title == "포인트 충전" && !receipt ? (
+          <p>포인트 충전</p>
+        ) : title == "포인트 충전" && receipt ? (
+          <p>결제수단 국민 신용카드(5150)</p>
+        ) : (
+          <p>서울시 강남구 논현동 120-210호</p>
+        )}
+      </div>
+      <ul className="content-detail">
+        {title == "포인트 충전" && !receipt ? (
+          <>
+            <li>
+              <h4>결제수단</h4>
+              <h4>국민 신용카드(5150)</h4>
+            </li>
+            <li>
+              <h4>일시</h4>
+              <h4>2023-07-31 10:45</h4>
+            </li>
+          </>
+        ) : title == "포인트 충전" && receipt ? (
+          <>
+            <li>
+              <h4>일시</h4>
+              <h4>2023-07-31 10:45</h4>
+            </li>
+          </>
+        ) : title == "포인트 인출" ? (
+          <>
+            <li>
+              <h4>입금처</h4>
+              <h4>홍길동</h4>
+            </li>
+            <li>
+              <h4>계좌</h4>
+              <h4>국민은행(000—1—1--)</h4>
+            </li>
+            <li>
+              <h4>일시</h4>
+              <h4>2023-07-31 10:45</h4>
+            </li>
+          </>
+        ) : (
+          <>
+            <li>
+              <h4>판매가</h4>
+              <h4>
+                3,300 <span>원</span>
+              </h4>
+            </li>
+            <li>
+              <h4>판매자</h4>
+              <h4>심사임당</h4>
+            </li>
+            <li>
+              <h4>일시</h4>
+              <h4>2023-07-31 10:45</h4>
+            </li>
+          </>
+        )}
+      </ul>
+      {title == "포인트 충전" && receipt ? (
+        <div className="btn-wrap">
+          <BasicBtn text={"온라인 영수증"} href={"/mypage/receipt"} />
+        </div>
+      ) : (
+        <></>
+      )}
+    </DetailWrap>
   );
 }
 

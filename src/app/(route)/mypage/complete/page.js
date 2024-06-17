@@ -1,10 +1,9 @@
 "use client";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import * as React from "react";
-import { useState } from "react";
-import "../../../style/global.css";
+
 import styled from "@emotion/styled";
+import { Box } from "@mui/material";
+import "../../../style/global.css";
+import { useState } from "react";
 
 import theme from "../../../../app/style/theme";
 
@@ -14,59 +13,44 @@ import MobileBox from "@/app/components/layout/MobileBox";
 import MobileContainerBox from "@/app/components/layout/MobileContainerBox";
 import MobileNav from "@/app/components/nav/MobileNav";
 export default function Complete() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
-  const [add, setAdd] = React.useState(false);
+  const [add, setAdd] = useState(false);
 
   const handleClickAdd = () => {
     setAdd(!add);
   };
 
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <MobileBox>
-          <MobileNav text={"결제한 후기부등본"} />
-          <MobileContainerBox>
-            <CompleteWrap>
-              <h2>
-                총 <strong>000</strong>건
-              </h2>
-              <div className="complete-list">
+    <MobileBox>
+      <MobileNav text={"결제한 후기부등본"} />
+      <MobileContainerBox>
+        <CompleteWrap>
+          <h2>
+            총 <strong>000</strong>건
+          </h2>
+          <div className="complete-list">
+            <AttestedCopyMobile type={"기간"} view={"none"} />
+            <AttestedCopyMobile type={"기간"} view={"none"} />
+            <AttestedCopyMobile type={"기간"} view={"none"} />
+            {add ? (
+              <>
                 <AttestedCopyMobile type={"기간"} view={"none"} />
                 <AttestedCopyMobile type={"기간"} view={"none"} />
                 <AttestedCopyMobile type={"기간"} view={"none"} />
-                {add ? (
-                  <>
-                    <AttestedCopyMobile type={"기간"} view={"none"} />
-                    <AttestedCopyMobile type={"기간"} view={"none"} />
-                    <AttestedCopyMobile type={"기간"} view={"none"} />
-                  </>
-                ) : (
-                  <></>
-                )}
-              </div>
-              {!add ? (
-                <div className="bottom-btn">
-                  <BasicBtn text={"더보기"} handleClick={handleClickAdd} />
-                </div>
-              ) : (
-                <></>
-              )}
-            </CompleteWrap>
-          </MobileContainerBox>
-        </MobileBox>
-      </ThemeProvider>
-    </>
+              </>
+            ) : (
+              <></>
+            )}
+          </div>
+          {!add ? (
+            <div className="bottom-btn">
+              <BasicBtn text={"더보기"} handleClick={handleClickAdd} />
+            </div>
+          ) : (
+            <></>
+          )}
+        </CompleteWrap>
+      </MobileContainerBox>
+    </MobileBox>
   );
 }
 

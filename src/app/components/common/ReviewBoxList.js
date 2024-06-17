@@ -1,57 +1,43 @@
+"use client";
+
 import styled from "@emotion/styled";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import { Box } from "@mui/material";
 import * as React from "react";
 
 import theme from "../../../app/style/theme";
 
 export default function ReviewBoxList() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <ReviewBoxListWrap>
-          <div className="review-box">
-            <div className="text-wrap">
-              <h2>최신후기</h2>
-              <h3>30개</h3>
-            </div>
-            <img src="/img/main/icon/new.png" />
-          </div>
-          <div className="review-box">
-            <div className="text-wrap">
-              <h2>실거주 인증후기</h2>
-              <h3>30개</h3>
-            </div>
-            <img src="/img/main/icon/mark.png" />
-          </div>
-          <div className="review-box">
-            <div className="text-wrap">
-              <h2>무료 후기</h2>
-              <h3>30개</h3>
-            </div>
-            <img src="/img/main/icon/free.png" />
-          </div>
-          <div className="review-box">
-            <div className="text-wrap">
-              <h2>평점 높은 후기</h2>
-              <h3>30개</h3>
-            </div>
-            <img src="/img/main/icon/star.png" />
-          </div>
-        </ReviewBoxListWrap>
-      </ThemeProvider>
-    </>
+    <ReviewBoxListWrap>
+      <div className="review-box">
+        <div className="text-wrap">
+          <h2>최신후기</h2>
+          <h3>30개</h3>
+        </div>
+        <img src="/img/main/icon/new.png" />
+      </div>
+      <div className="review-box">
+        <div className="text-wrap">
+          <h2>실거주 인증후기</h2>
+          <h3>30개</h3>
+        </div>
+        <img src="/img/main/icon/mark.png" />
+      </div>
+      <div className="review-box">
+        <div className="text-wrap">
+          <h2>무료 후기</h2>
+          <h3>30개</h3>
+        </div>
+        <img src="/img/main/icon/free.png" />
+      </div>
+      <div className="review-box">
+        <div className="text-wrap">
+          <h2>평점 높은 후기</h2>
+          <h3>30개</h3>
+        </div>
+        <img src="/img/main/icon/star.png" />
+      </div>
+    </ReviewBoxListWrap>
   );
 }
 

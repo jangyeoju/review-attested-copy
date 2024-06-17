@@ -1,8 +1,8 @@
 "use client";
+
 import styled from "@emotion/styled";
 import SearchIcon from "@mui/icons-material/Search";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import { Box, Button, IconButton } from "@mui/material";
+import { Box } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import * as React from "react";
@@ -15,16 +15,6 @@ import BasicBtn from "@/app/components/button/BasicBtn";
 import BasicSBtn from "@/app/components/button/BasicSBtn";
 import BasicModal from "@/app/components/modal/BasicModal";
 export default function ApplyVerification() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -37,69 +27,67 @@ export default function ApplyVerification() {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <Nav />
-        <SubBanner>
-          <h2>공인중개사에게 검증을 맡겨 보세요.</h2>
-          <h1>공인중개사 검증신청</h1>
-        </SubBanner>
-        <ContainerBox2>
-          <ApplyVerificationWrap>
-            <StyledTextField
-              id="outlined-basic"
-              variant="outlined"
-              type="text"
-              onClick={handleClickOpen}
-              placeholder="공인중개사 검색"
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-              }}
-            />
-            <BasicModal
-              handleClose={handleClose}
-              open={open}
-              title={"공인중개사"}
-              content={"공인중개사"}
-            />
+      <Nav />
+      <SubBanner>
+        <h2>공인중개사에게 검증을 맡겨 보세요.</h2>
+        <h1>공인중개사 검증신청</h1>
+      </SubBanner>
+      <ContainerBox2>
+        <ApplyVerificationWrap>
+          <StyledTextField
+            id="outlined-basic"
+            variant="outlined"
+            type="text"
+            onClick={handleClickOpen}
+            placeholder="공인중개사 검색"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
+          />
+          <BasicModal
+            handleClose={handleClose}
+            open={open}
+            title={"공인중개사"}
+            content={"공인중개사"}
+          />
 
-            <div className="search-result">
-              <h2>
-                사무소 : <span>홍길동 사무소 (02-333-4444)</span>
-              </h2>
-              <h2>
-                공인중개사 : <span>홍길동 </span>{" "}
-              </h2>
-              <h2>
-                주소 : <span>서울시 강남구 논현동222</span>
-              </h2>
-            </div>
-            <div className="search-info">
-              <h3>※ 유의사항</h3>
-              <h4>
-                1. 검증 신청 후 공인중개사가 수락하면 검증이 진행됩니다. <br />
-                2. 평균 30일 소요 됩니다. <br />
-                3.검증완료시공인중개사평점과상세설명이함께 표시됩니다. <br />
-                4. 공인중개사 선택은 검증단에 등록된 회원만 가능합니다.
-              </h4>
-            </div>
-            <div className="price-box">
-              <h3>결제금액</h3>
-              <h2>
-                165,000<span>원</span>
-              </h2>
-            </div>
-            <ButtonWrap>
-              <BasicSBtn text={"취소"} />
-              <BasicBtn text={"결제"} />
-            </ButtonWrap>
-          </ApplyVerificationWrap>
-        </ContainerBox2>
-        <Footer />
-      </ThemeProvider>
+          <div className="search-result">
+            <h2>
+              사무소 : <span>홍길동 사무소 (02-333-4444)</span>
+            </h2>
+            <h2>
+              공인중개사 : <span>홍길동 </span>{" "}
+            </h2>
+            <h2>
+              주소 : <span>서울시 강남구 논현동222</span>
+            </h2>
+          </div>
+          <div className="search-info">
+            <h3>※ 유의사항</h3>
+            <h4>
+              1. 검증 신청 후 공인중개사가 수락하면 검증이 진행됩니다. <br />
+              2. 평균 30일 소요 됩니다. <br />
+              3.검증완료시공인중개사평점과상세설명이함께 표시됩니다. <br />
+              4. 공인중개사 선택은 검증단에 등록된 회원만 가능합니다.
+            </h4>
+          </div>
+          <div className="price-box">
+            <h3>결제금액</h3>
+            <h2>
+              165,000<span>원</span>
+            </h2>
+          </div>
+          <ButtonWrap>
+            <BasicSBtn text={"취소"} />
+            <BasicBtn text={"결제"} />
+          </ButtonWrap>
+        </ApplyVerificationWrap>
+      </ContainerBox2>
+      <Footer />
     </>
   );
 }

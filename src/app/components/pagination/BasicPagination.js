@@ -1,8 +1,5 @@
 import styled from "@emotion/styled";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import { Box, Button, IconButton } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
-import Stack from "@mui/material/Stack";
 import * as React from "react";
 
 import theme from "../../style/theme";

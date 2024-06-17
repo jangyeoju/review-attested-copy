@@ -1,55 +1,40 @@
 "use client";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+
+import styled from "@emotion/styled";
+import { Box, Button } from "@mui/material";
 import * as React from "react";
 import "../../style/global.css";
-import styled from "@emotion/styled";
-
-import theme from "../../../app/style/theme";
 
 import MobileBox from "@/app/components/layout/MobileBox";
 import MobileContainerBox from "@/app/components/layout/MobileContainerBox";
 import MobileNav from "@/app/components/nav/MobileNav";
 export default function Login() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <MobileBox>
-          <MobileNav text={"후기부등본"} />
-          <MobileContainerBox>
-            <LoginWrap>
-              <div className="logo">
-                <img src="/img/logo2.svg" />
-              </div>
-              <div className="login-btn-list">
-                <Button variant="contained" className="naver-btn">
-                  <img src="/img/mobile/login/icon/naver.png" /> 네이버로
-                  회원가입하기
-                </Button>
-                <Button variant="contained" className="kakao-btn">
-                  <img src="/img/mobile/login/icon/kakao.png" /> 카카오로
-                  회원가입하기
-                </Button>
-                <Button variant="contained" className="google-btn">
-                  <img src="/img/mobile/login/icon/google.png" /> 구글로
-                  회원가입하기
-                </Button>
-              </div>
-            </LoginWrap>
-          </MobileContainerBox>
-        </MobileBox>
-      </ThemeProvider>
+      <MobileBox>
+        <MobileNav text={"후기부등본"} />
+        <MobileContainerBox>
+          <LoginWrap>
+            <div className="logo">
+              <img src="/img/logo2.svg" />
+            </div>
+            <div className="login-btn-list">
+              <Button variant="contained" className="naver-btn">
+                <img src="/img/mobile/login/icon/naver.png" /> 네이버로
+                회원가입하기
+              </Button>
+              <Button variant="contained" className="kakao-btn">
+                <img src="/img/mobile/login/icon/kakao.png" /> 카카오로
+                회원가입하기
+              </Button>
+              <Button variant="contained" className="google-btn">
+                <img src="/img/mobile/login/icon/google.png" /> 구글로
+                회원가입하기
+              </Button>
+            </div>
+          </LoginWrap>
+        </MobileContainerBox>
+      </MobileBox>
     </>
   );
 }

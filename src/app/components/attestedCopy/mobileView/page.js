@@ -1,30 +1,15 @@
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import * as React from "react";
-import { useState } from "react";
-import "../../../style/global.css";
+"use client";
+
 import styled from "@emotion/styled";
+import { Box, Button } from "@mui/material";
+import * as React from "react";
+import "../../../style/global.css";
 
 import theme from "../../../../app/style/theme";
-import BasicBtn from "../../button/BasicBtn";
 import BasicModal from "../../modal/BasicModal";
 import AttestedCopy from "../attestedCopy";
 
 export default function AttestedCopyMobile({ type, view }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-      secondary: {
-        main: "#D9D9D9",
-      },
-    },
-  });
-
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -76,202 +61,191 @@ export default function AttestedCopyMobile({ type, view }) {
   };
 
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <AttestedCopyMobileWrap>
-          <AttestedCopyMobileBox className={type == "완료" ? "complete" : ""}>
-            {type == "작성중" ? (
-              <AttestedCopy
-                tag1={true}
-                tag2={false}
-                tag3={false}
-                price={"3,300원"}
-                view={view}
-                type={type}
-              />
+    <AttestedCopyMobileWrap>
+      <AttestedCopyMobileBox className={type == "완료" ? "complete" : ""}>
+        {type == "작성중" ? (
+          <AttestedCopy
+            tag1={true}
+            tag2={false}
+            tag3={false}
+            price={"3,300원"}
+            view={view}
+            type={type}
+          />
+        ) : (
+          <AttestedCopy
+            tag1={true}
+            tag2={true}
+            tag3={true}
+            price={"3,300원"}
+            view={view}
+          />
+        )}
+        {type == "작성중" ? (
+          <div className="delete-wrap">
+            <DeleteBtn
+              variant="outlined"
+              color="error"
+              onClick={handleClickOpen}
+            >
+              삭제
+            </DeleteBtn>
+            <BasicModal
+              handleClose={handleClose}
+              open={open}
+              title={"삭제"}
+              content={"삭제"}
+            />
+          </div>
+        ) : (
+          <div className="info-wrap">
+            {type == "등록" ? (
+              <h3>
+                현재까지 수익 : <span>-</span> 원
+              </h3>
+            ) : type == "검토중" ? (
+              <h3>완료예정일 : 2024-12-31</h3>
+            ) : type == "검증완료" ? (
+              <h3>검증일 : 2024-12-31</h3>
+            ) : type == "반려" ? (
+              <>
+                <h5></h5>
+              </>
+            ) : type == "검증진행" || type == "검증포기" ? (
+              <>
+                <h3>완료일 : 2024-12-31</h3>
+              </>
             ) : (
-              <AttestedCopy
-                tag1={true}
-                tag2={true}
-                tag3={true}
-                price={"3,300원"}
-                view={view}
-              />
+              <h4>2023-04-17 11:23, 포인트, 쿠폰 3,300원</h4>
             )}
-            {type == "작성중" ? (
-              <div className="delete-wrap">
-                <DeleteBtn
-                  variant="outlined"
-                  color="error"
-                  onClick={handleClickOpen}
-                >
-                  삭제
-                </DeleteBtn>
-                <BasicModal
-                  handleClose={handleClose}
-                  open={open}
-                  title={"삭제"}
-                  content={"삭제"}
-                />
-              </div>
-            ) : (
-              <div className="info-wrap">
-                {type == "등록" ? (
-                  <h3>
-                    현재까지 수익 : <span>-</span> 원
-                  </h3>
-                ) : type == "검토중" ? (
-                  <h3>완료예정일 : 2024-12-31</h3>
-                ) : type == "검증완료" ? (
-                  <h3>검증일 : 2024-12-31</h3>
-                ) : type == "반려" ? (
-                  <>
-                    <h5></h5>
-                  </>
-                ) : type == "검증진행" || type == "검증포기" ? (
-                  <>
-                    <h3>완료일 : 2024-12-31</h3>
-                  </>
-                ) : (
-                  <h4>2023-04-17 11:23, 포인트, 쿠폰 3,300원</h4>
-                )}
-                <div className="button-wrap">
-                  {type == "기간" ? (
-                    <Btn variant="contained">7일 남음</Btn>
-                  ) : (
-                    <></>
-                  )}
-                  {type == "접수" ? (
-                    <OutlinedBtn variant="outlined">검증 접수</OutlinedBtn>
-                  ) : (
-                    <></>
-                  )}
-                  {type == "진행" ? (
-                    <IngBtn variant="outlined">검증 진행</IngBtn>
-                  ) : (
-                    <></>
-                  )}
-                  {type == "완료" ? (
-                    <Btn variant="contained">검증 완료</Btn>
-                  ) : (
-                    <></>
-                  )}
-                  {type == "거절" ? (
-                    <RefuseBtn variant="contained">검증 거절</RefuseBtn>
-                  ) : (
-                    <></>
-                  )}
-                  {type == "검토중" ? (
-                    <IngBtn variant="outlined">검토중</IngBtn>
-                  ) : (
-                    <></>
-                  )}
-                  {type == "반려" ? (
-                    <>
-                      <div className="btn-list">
-                        <RefuseBtn
-                          variant="contained"
-                          color="secondary"
-                          onClick={handleClickOpen2}
-                        >
-                          반려사유
-                        </RefuseBtn>
-                        <OutlinedBtn variant="outlined">수정</OutlinedBtn>
-                        <DeleteBtn
-                          variant="outlined"
-                          color="error"
-                          onClick={handleClickOpen}
-                        >
-                          삭제
-                        </DeleteBtn>
-                        <BasicModal
-                          handleClose={handleClose}
-                          open={open}
-                          title={"삭제"}
-                          content={"삭제"}
-                        />
-                        <BasicModal
-                          handleClose={handleClose2}
-                          open={open2}
-                          title={"반려사유"}
-                          content={"반려"}
-                        />
-                      </div>
-                    </>
-                  ) : (
-                    <></>
-                  )}
-                  {type == "거절수락" ? (
-                    <>
-                      <div className="btn-list">
-                        <RefuseBtn
-                          variant="contained"
-                          color="secondary"
-                          onClick={handleClickOpen3}
-                        >
-                          거절
-                        </RefuseBtn>
-                        <BasicModal
-                          handleClose={handleClose3}
-                          open={open3}
-                          title={"검증 거절"}
-                          content={"검증거절"}
-                        />
-                        <Btn variant="contained" onClick={handleClickOpen4}>
-                          수락
-                        </Btn>
-                        <BasicModal
-                          handleClose={handleClose4}
-                          open={open4}
-                          title={"검증 수락"}
-                          content={"검증수락"}
-                        />
-                      </div>
-                    </>
-                  ) : (
-                    <></>
-                  )}
-                  {type == "검증진행" ? (
-                    <IngBtn
-                      variant="outlined"
-                      href="/mypage/verificationProgress"
+            <div className="button-wrap">
+              {type == "기간" ? <Btn variant="contained">7일 남음</Btn> : <></>}
+              {type == "접수" ? (
+                <OutlinedBtn variant="outlined">검증 접수</OutlinedBtn>
+              ) : (
+                <></>
+              )}
+              {type == "진행" ? (
+                <IngBtn variant="outlined">검증 진행</IngBtn>
+              ) : (
+                <></>
+              )}
+              {type == "완료" ? (
+                <Btn variant="contained">검증 완료</Btn>
+              ) : (
+                <></>
+              )}
+              {type == "거절" ? (
+                <RefuseBtn variant="contained">검증 거절</RefuseBtn>
+              ) : (
+                <></>
+              )}
+              {type == "검토중" ? (
+                <IngBtn variant="outlined">검토중</IngBtn>
+              ) : (
+                <></>
+              )}
+              {type == "반려" ? (
+                <>
+                  <div className="btn-list">
+                    <RefuseBtn
+                      variant="contained"
+                      color="secondary"
+                      onClick={handleClickOpen2}
                     >
-                      검증 진행
-                    </IngBtn>
-                  ) : (
-                    <></>
-                  )}
-                  {type == "검증포기" ? (
-                    <div className="red-btn">
-                      <Btn
-                        variant="contained"
-                        color="error"
-                        onClick={handleClickOpen5}
-                      >
-                        검증 포기
-                      </Btn>
-                      <BasicModal
-                        handleClose={handleClose5}
-                        open={open5}
-                        title={"검증 포기"}
-                        content={"검증포기"}
-                      />
-                    </div>
-                  ) : (
-                    <></>
-                  )}
-                  {type == "검증완료" ? (
-                    <Btn variant="contained">검증완료</Btn>
-                  ) : (
-                    <></>
-                  )}
+                      반려사유
+                    </RefuseBtn>
+                    <OutlinedBtn variant="outlined">수정</OutlinedBtn>
+                    <DeleteBtn
+                      variant="outlined"
+                      color="error"
+                      onClick={handleClickOpen}
+                    >
+                      삭제
+                    </DeleteBtn>
+                    <BasicModal
+                      handleClose={handleClose}
+                      open={open}
+                      title={"삭제"}
+                      content={"삭제"}
+                    />
+                    <BasicModal
+                      handleClose={handleClose2}
+                      open={open2}
+                      title={"반려사유"}
+                      content={"반려"}
+                    />
+                  </div>
+                </>
+              ) : (
+                <></>
+              )}
+              {type == "거절수락" ? (
+                <>
+                  <div className="btn-list">
+                    <RefuseBtn
+                      variant="contained"
+                      color="secondary"
+                      onClick={handleClickOpen3}
+                    >
+                      거절
+                    </RefuseBtn>
+                    <BasicModal
+                      handleClose={handleClose3}
+                      open={open3}
+                      title={"검증 거절"}
+                      content={"검증거절"}
+                    />
+                    <Btn variant="contained" onClick={handleClickOpen4}>
+                      수락
+                    </Btn>
+                    <BasicModal
+                      handleClose={handleClose4}
+                      open={open4}
+                      title={"검증 수락"}
+                      content={"검증수락"}
+                    />
+                  </div>
+                </>
+              ) : (
+                <></>
+              )}
+              {type == "검증진행" ? (
+                <IngBtn variant="outlined" href="/mypage/verificationProgress">
+                  검증 진행
+                </IngBtn>
+              ) : (
+                <></>
+              )}
+              {type == "검증포기" ? (
+                <div className="red-btn">
+                  <Btn
+                    variant="contained"
+                    color="error"
+                    onClick={handleClickOpen5}
+                  >
+                    검증 포기
+                  </Btn>
+                  <BasicModal
+                    handleClose={handleClose5}
+                    open={open5}
+                    title={"검증 포기"}
+                    content={"검증포기"}
+                  />
                 </div>
-              </div>
-            )}
-          </AttestedCopyMobileBox>
-        </AttestedCopyMobileWrap>
-      </ThemeProvider>
-    </>
+              ) : (
+                <></>
+              )}
+              {type == "검증완료" ? (
+                <Btn variant="contained">검증완료</Btn>
+              ) : (
+                <></>
+              )}
+            </div>
+          </div>
+        )}
+      </AttestedCopyMobileBox>
+    </AttestedCopyMobileWrap>
   );
 }
 

@@ -1,23 +1,13 @@
+"use client";
+
 import styled from "@emotion/styled";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import { Box } from "@mui/material";
 import * as React from "react";
 
 import theme from "../../../app/style/theme";
 import ViewModal from "../modal/ViewModal";
 
 export default function AttestedCopy({ tag1, tag2, tag3, price, view, type }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#00D45E",
-      },
-    },
-  });
-
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -34,46 +24,44 @@ export default function AttestedCopy({ tag1, tag2, tag3, price, view, type }) {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <AttestedCopyBox onClick={handleClickOpen}>
-          <div>
-            <ul className="tag-list">
-              {tag1 ? (
-                <li id="tag1">
-                  <TagBox>2023</TagBox>
-                </li>
-              ) : (
-                <></>
-              )}
-              {tag2 ? (
-                <li id="tag2">
-                  <TagBox>실거주</TagBox>
-                </li>
-              ) : (
-                <></>
-              )}
-              {tag3 ? (
-                <li id="tag3">
-                  <TagBox>공인</TagBox>
-                </li>
-              ) : (
-                <></>
-              )}
-            </ul>
-            <h2>
-              경기도 고양시 덕양구 세솔로 25
-              <br />
-              2210동 1701호
-            </h2>
-            <p>등록일 : 2024-04-24</p>
-          </div>
-          <div>
-            <h1>{price}</h1>
-            {type == "작성중" ? <></> : <p>상세설명 20건</p>}
-          </div>
-        </AttestedCopyBox>
-        <ViewModal handleClose={handleClose} open={open} />
-      </ThemeProvider>
+      <AttestedCopyBox onClick={handleClickOpen}>
+        <div>
+          <ul className="tag-list">
+            {tag1 ? (
+              <li id="tag1">
+                <TagBox>2023</TagBox>
+              </li>
+            ) : (
+              <></>
+            )}
+            {tag2 ? (
+              <li id="tag2">
+                <TagBox>실거주</TagBox>
+              </li>
+            ) : (
+              <></>
+            )}
+            {tag3 ? (
+              <li id="tag3">
+                <TagBox>공인</TagBox>
+              </li>
+            ) : (
+              <></>
+            )}
+          </ul>
+          <h2>
+            경기도 고양시 덕양구 세솔로 25
+            <br />
+            2210동 1701호
+          </h2>
+          <p>등록일 : 2024-04-24</p>
+        </div>
+        <div>
+          <h1>{price}</h1>
+          {type == "작성중" ? <></> : <p>상세설명 20건</p>}
+        </div>
+      </AttestedCopyBox>
+      <ViewModal handleClose={handleClose} open={open} />
     </>
   );
 }

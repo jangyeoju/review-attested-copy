@@ -1,129 +1,115 @@
+"use client";
+
 import styled from "@emotion/styled";
 import CloseIcon from "@mui/icons-material/Close";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import { Box, Button, IconButton } from "@mui/material";
+import { Box } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import * as React from "react";
 
-import theme from "../../../style/theme";
 import BasicPagination from "../../pagination/BasicPagination";
 
 import BasicBtn from "@/app/components/button/BasicBtn";
 
 export default function SearchAgentList({ handleClose }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <SearchListWrap>
-          <StyledTextField
-            id="outlined-basic"
-            variant="outlined"
-            type="text"
-            value="홍길동"
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <CloseIcon />
-                </InputAdornment>
-              ),
-            }}
-          />
-          <div className="table-name">
-            <h2>검색결과</h2>
-          </div>
-          {/* <div className="result-none">
+    <SearchListWrap>
+      <StyledTextField
+        id="outlined-basic"
+        variant="outlined"
+        type="text"
+        value="홍길동"
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <CloseIcon />
+            </InputAdornment>
+          ),
+        }}
+      />
+      <div className="table-name">
+        <h2>검색결과</h2>
+      </div>
+      {/* <div className="result-none">
                         <p>검색결과가 없습니다.</p>
                     </div> */}
-          <table>
-            <tbody>
-              <tr>
-                <th className="w-10">선택</th>
-                <th className="w-30">사무소</th>
-                <th className="w-25">공인중개사</th>
-                <th className="w-40">주소</th>
-              </tr>
-              <tr>
-                <td className="w-10">
-                  <input type="radio" name="coupon"></input>
-                </td>
-                <td className="w-30">
-                  홍길동 공인중개사
-                  <br />
-                  (02-233-4444)
-                </td>
-                <td className="w-25">홍길동</td>
-                <td className="w-40">서울시 강남구 논현동 222</td>
-              </tr>
-              <tr>
-                <td className="w-10">
-                  <input type="radio" name="coupon"></input>
-                </td>
-                <td className="w-30">
-                  홍길동 공인중개사
-                  <br />
-                  (02-233-4444)
-                </td>
-                <td className="w-25">홍길동</td>
-                <td className="w-40">서울시 강남구 논현동 222</td>
-              </tr>
-              <tr>
-                <td className="w-10">
-                  <input type="radio" name="coupon"></input>
-                </td>
-                <td className="w-30">
-                  홍길동 공인중개사
-                  <br />
-                  (02-233-4444)
-                </td>
-                <td className="w-25">홍길동</td>
-                <td className="w-40">서울시 강남구 논현동 222</td>
-              </tr>
-              <tr>
-                <td className="w-10">
-                  <input type="radio" name="coupon"></input>
-                </td>
-                <td className="w-30">
-                  홍길동 공인중개사
-                  <br />
-                  (02-233-4444)
-                </td>
-                <td className="w-25">홍길동</td>
-                <td className="w-40">서울시 강남구 논현동 222</td>
-              </tr>
-              <tr>
-                <td className="w-10">
-                  <input type="radio" name="coupon"></input>
-                </td>
-                <td className="w-30">
-                  홍길동 공인중개사
-                  <br />
-                  (02-233-4444)
-                </td>
-                <td className="w-25">홍길동</td>
-                <td className="w-40">서울시 강남구 논현동 222</td>
-              </tr>
-            </tbody>
-          </table>
-          <div className="dp-cen">
-            <BasicPagination />
-          </div>
-          <ButtonWrap>
-            <BasicBtn text={"확인"} handleClick={handleClose} />
-          </ButtonWrap>
-        </SearchListWrap>
-      </ThemeProvider>
-    </>
+      <table>
+        <tbody>
+          <tr>
+            <th className="w-10">선택</th>
+            <th className="w-30">사무소</th>
+            <th className="w-25">공인중개사</th>
+            <th className="w-40">주소</th>
+          </tr>
+          <tr>
+            <td className="w-10">
+              <input type="radio" name="coupon"></input>
+            </td>
+            <td className="w-30">
+              홍길동 공인중개사
+              <br />
+              (02-233-4444)
+            </td>
+            <td className="w-25">홍길동</td>
+            <td className="w-40">서울시 강남구 논현동 222</td>
+          </tr>
+          <tr>
+            <td className="w-10">
+              <input type="radio" name="coupon"></input>
+            </td>
+            <td className="w-30">
+              홍길동 공인중개사
+              <br />
+              (02-233-4444)
+            </td>
+            <td className="w-25">홍길동</td>
+            <td className="w-40">서울시 강남구 논현동 222</td>
+          </tr>
+          <tr>
+            <td className="w-10">
+              <input type="radio" name="coupon"></input>
+            </td>
+            <td className="w-30">
+              홍길동 공인중개사
+              <br />
+              (02-233-4444)
+            </td>
+            <td className="w-25">홍길동</td>
+            <td className="w-40">서울시 강남구 논현동 222</td>
+          </tr>
+          <tr>
+            <td className="w-10">
+              <input type="radio" name="coupon"></input>
+            </td>
+            <td className="w-30">
+              홍길동 공인중개사
+              <br />
+              (02-233-4444)
+            </td>
+            <td className="w-25">홍길동</td>
+            <td className="w-40">서울시 강남구 논현동 222</td>
+          </tr>
+          <tr>
+            <td className="w-10">
+              <input type="radio" name="coupon"></input>
+            </td>
+            <td className="w-30">
+              홍길동 공인중개사
+              <br />
+              (02-233-4444)
+            </td>
+            <td className="w-25">홍길동</td>
+            <td className="w-40">서울시 강남구 논현동 222</td>
+          </tr>
+        </tbody>
+      </table>
+      <div className="dp-cen">
+        <BasicPagination />
+      </div>
+      <ButtonWrap>
+        <BasicBtn text={"확인"} handleClick={handleClose} />
+      </ButtonWrap>
+    </SearchListWrap>
   );
 }
 

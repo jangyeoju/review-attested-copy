@@ -1,36 +1,21 @@
 import styled from "@emotion/styled";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import { Box } from "@mui/material";
 import * as React from "react";
-
-import theme from "../../../../style/theme";
 
 import BasicBtn from "@/app/components/button/BasicBtn";
 
 export default function WithdrawalApplication({ handleClose }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <CertificationWrap>
-          <h3>
-            인출신청이 완료되었습니다. <br />
-            인출신청후 인출완료까지는 영업일 기준 5일 소요됩니다.
-          </h3>
-        </CertificationWrap>
-        <ButtonWrap>
-          <BasicBtn text={"확인"} handleClick={handleClose} />
-        </ButtonWrap>
-      </ThemeProvider>
+      <CertificationWrap>
+        <h3>
+          인출신청이 완료되었습니다. <br />
+          인출신청후 인출완료까지는 영업일 기준 5일 소요됩니다.
+        </h3>
+      </CertificationWrap>
+      <ButtonWrap>
+        <BasicBtn text={"확인"} handleClick={handleClose} />
+      </ButtonWrap>
     </>
   );
 }

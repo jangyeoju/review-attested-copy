@@ -1,37 +1,24 @@
+"use client";
+
 import styled from "@emotion/styled";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import { Box, Button, IconButton } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import * as React from "react";
 
 import theme from "../../../app/style/theme";
 
 export default function BottomBtn({ text, type, handle }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <BottomBtnWrap>
-          {type == "disabled" ? (
-            <BottomButton variant="contained" disabled>
-              {text}
-            </BottomButton>
-          ) : (
-            <BottomButton variant="contained" onClick={handle}>
-              {text}
-            </BottomButton>
-          )}
-        </BottomBtnWrap>
-      </ThemeProvider>
-    </>
+    <BottomBtnWrap>
+      {type == "disabled" ? (
+        <BottomButton variant="contained" disabled>
+          {text}
+        </BottomButton>
+      ) : (
+        <BottomButton variant="contained" onClick={handle}>
+          {text}
+        </BottomButton>
+      )}
+    </BottomBtnWrap>
   );
 }
 

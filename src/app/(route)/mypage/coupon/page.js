@@ -1,10 +1,9 @@
 "use client";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import * as React from "react";
-import { useState } from "react";
-import "../../../style/global.css";
+
 import styled from "@emotion/styled";
+import { Box } from "@mui/material";
+import * as React from "react";
+import "../../../style/global.css";
 
 import theme from "../../../../app/style/theme";
 
@@ -13,55 +12,42 @@ import MobileContainerBox from "@/app/components/layout/MobileContainerBox";
 import MobileNav from "@/app/components/nav/MobileNav";
 
 export default function Coupon() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <MobileBox>
-          <MobileNav text={"쿠폰"} />
-          <MobileContainerBox>
-            <CouponWrap>
-              <div className="coupon-table">
-                <div className="thead">
-                  <div className="th w-3">쿠폰명</div>
-                  <div className="th w-3">금액</div>
-                  <div className="th w-4">발급일</div>
-                  <div className="th w-3">남은기간</div>
-                </div>
-                <div className="tbody">
-                  <div className="td w-3">첫 후기등록</div>
-                  <div className="td w-3">1,000원</div>
-                  <div className="td w-4">2020-01-01</div>
-                  <div className="td w-3">90일</div>
-                </div>
-                <div className="tbody">
-                  <div className="td w-3">회원가입</div>
-                  <div className="td w-3">1,000원</div>
-                  <div className="td w-4">2020-01-01</div>
-                  <div className="td w-3">90일</div>
-                </div>
+      <MobileBox>
+        <MobileNav text={"쿠폰"} />
+        <MobileContainerBox>
+          <CouponWrap>
+            <div className="coupon-table">
+              <div className="thead">
+                <div className="th w-3">쿠폰명</div>
+                <div className="th w-3">금액</div>
+                <div className="th w-4">발급일</div>
+                <div className="th w-3">남은기간</div>
               </div>
-              <div className="text-info">
-                <p>
-                  1. 쿠폰은 후기를 조회할 때만 이용할 수 있습니다. <br />
-                  2. 쿠폰은 유효기간내 1회만 이용 가능합니다. <br />
-                  3. 쿠폰을 현금으로 환불되지 않습니다.
-                </p>
+              <div className="tbody">
+                <div className="td w-3">첫 후기등록</div>
+                <div className="td w-3">1,000원</div>
+                <div className="td w-4">2020-01-01</div>
+                <div className="td w-3">90일</div>
               </div>
-            </CouponWrap>
-          </MobileContainerBox>
-        </MobileBox>
-      </ThemeProvider>
+              <div className="tbody">
+                <div className="td w-3">회원가입</div>
+                <div className="td w-3">1,000원</div>
+                <div className="td w-4">2020-01-01</div>
+                <div className="td w-3">90일</div>
+              </div>
+            </div>
+            <div className="text-info">
+              <p>
+                1. 쿠폰은 후기를 조회할 때만 이용할 수 있습니다. <br />
+                2. 쿠폰은 유효기간내 1회만 이용 가능합니다. <br />
+                3. 쿠폰을 현금으로 환불되지 않습니다.
+              </p>
+            </div>
+          </CouponWrap>
+        </MobileContainerBox>
+      </MobileBox>
     </>
   );
 }

@@ -1,9 +1,9 @@
-import styled from "@emotion/styled";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import * as React from "react";
+"use client";
 
-import theme from "../../../../../app/style/theme";
+import styled from "@emotion/styled";
+import { Box, Button } from "@mui/material";
+import { useState } from "react";
+
 import BasicModal from "../../BasicModal";
 
 import BasicBtn from "@/app/components/button/BasicBtn";
@@ -11,88 +11,72 @@ import InputText from "@/app/components/input/InputText";
 import InputTextEnd from "@/app/components/input/InputTextEnd";
 
 export default function Withdrawal({ handleClose }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <WithdrawalWrap>
-          <div className="point-box">
-            <div className="point">
-              <h3>인출 가능 포인트</h3>
-              <h4>수익기준 (충전금액 제외)</h4>
-            </div>
-            <h2>50,000 원</h2>
+    <WithdrawalWrap>
+      <div className="point-box">
+        <div className="point">
+          <h3>인출 가능 포인트</h3>
+          <h4>수익기준 (충전금액 제외)</h4>
+        </div>
+        <h2>50,000 원</h2>
+      </div>
+      <ul className="input-list">
+        <li>
+          <h3>예금주</h3>
+          <InputText value={"홍길동"} />
+        </li>
+        <li>
+          <h3>은행</h3>
+          <InputText />
+        </li>
+        <li>
+          <h3>계좌번호</h3>
+          <InputText />
+        </li>
+        <li>
+          <div className="text-box">
+            <h3>인출금액</h3>
           </div>
-          <ul className="input-list">
-            <li>
-              <h3>예금주</h3>
-              <InputText value={"홍길동"} />
-            </li>
-            <li>
-              <h3>은행</h3>
-              <InputText />
-            </li>
-            <li>
-              <h3>계좌번호</h3>
-              <InputText />
-            </li>
-            <li>
-              <div className="text-box">
-                <h3>인출금액</h3>
-              </div>
-              <div className="input-btn">
-                <InputTextEnd
-                  state={"error"}
-                  placeholder={"최소 50,000원"}
-                  InputAdornment={"원"}
-                  helperText={"50,000원 이상 입력해야 됩니다."}
-                />
-                <Button variant="contained">전액</Button>
-              </div>
-            </li>
-          </ul>
-          <div className="btn-wrap">
-            <BasicBtn text={"인출신청"} handleClick={handleClickOpen} />
-            <BasicModal
-              handleClose={handleClose}
-              open={open}
-              title={"인출신청"}
-              content={"인출신청"}
+          <div className="input-btn">
+            <InputTextEnd
+              state={"error"}
+              placeholder={"최소 50,000원"}
+              InputAdornment={"원"}
+              helperText={"50,000원 이상 입력해야 됩니다."}
             />
+            <Button variant="contained">전액</Button>
           </div>
-          <div className="text-info">
-            <p>
-              1. 인출 가능한 포인트 잔액이 50,000원 이상인 경우 인출 할 수
-              있습니다.
-              <br />
-              2. 인출 시 계좌는 본인 계좌만 가능합니다.
-              <br />
-              3. 인출 신청은 월에 1회만 가능합니다.
-              <br />
-              4. 인출신청후 인출완료까지는 영업일 기준 5일 소요됩니다.
-              <br />
-              5. 계좌정보 오류로 인한 인출에 대해서는 당사가 책임지지 않습니다.
-            </p>
-          </div>
-        </WithdrawalWrap>
-      </ThemeProvider>
-    </>
+        </li>
+      </ul>
+      <div className="btn-wrap">
+        <BasicBtn text={"인출신청"} handleClick={handleClickOpen} />
+        <BasicModal
+          handleClose={handleClose}
+          open={open}
+          title={"인출신청"}
+          content={"인출신청"}
+        />
+      </div>
+      <div className="text-info">
+        <p>
+          1. 인출 가능한 포인트 잔액이 50,000원 이상인 경우 인출 할 수 있습니다.
+          <br />
+          2. 인출 시 계좌는 본인 계좌만 가능합니다.
+          <br />
+          3. 인출 신청은 월에 1회만 가능합니다.
+          <br />
+          4. 인출신청후 인출완료까지는 영업일 기준 5일 소요됩니다.
+          <br />
+          5. 계좌정보 오류로 인한 인출에 대해서는 당사가 책임지지 않습니다.
+        </p>
+      </div>
+    </WithdrawalWrap>
   );
 }
 

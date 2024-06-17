@@ -1,7 +1,7 @@
 "use client";
+
 import styled from "@emotion/styled";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
@@ -15,26 +15,12 @@ import Nav from "../../components/nav/Nav";
 import AttestedCopy from "@/app/components/attestedCopy/attestedCopy";
 import BasicBtn from "@/app/components/button/BasicBtn";
 import BasicSBtn from "@/app/components/button/BasicSBtn";
-import InputText from "@/app/components/input/InputText";
 import InputTextEnd from "@/app/components/input/InputTextEnd";
 import ContainerBox from "@/app/components/layout/ContainerBox";
 import BasicModal from "@/app/components/modal/BasicModal";
 import Title from "@/app/components/title/Title";
 
-
-
 export default function Payment() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -67,138 +53,133 @@ export default function Payment() {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <Nav />
-        <ContainerBox>
-          <Title text={"결제하기"} />
-          <PaymentWrap>
-            <ReviewBox>
-              <AttestedCopy
-                tag1={true}
-                tag2={true}
-                tag3={true}
-                price={"3,300원"}
-              />
-            </ReviewBox>
-            <PaymentBox>
-              <ul>
-                <li>
+      <Nav />
+      <ContainerBox>
+        <Title text={"결제하기"} />
+        <PaymentWrap>
+          <ReviewBox>
+            <AttestedCopy
+              tag1={true}
+              tag2={true}
+              tag3={true}
+              price={"3,300원"}
+            />
+          </ReviewBox>
+          <PaymentBox>
+            <ul>
+              <li>
+                <div className="coupon-list">
+                  <div className="text-box">
+                    <h3>상품 금액</h3>
+                  </div>
+                  <div className="text-box">
+                    <h4>3,300원</h4>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className="coupon-list">
+                  <div className="text-box">
+                    <h3>쿠폰</h3>
+                  </div>
+                  <div className="input-box-wrap">
+                    <div className="input-box">
+                      <InputTextEnd state={"disabled"} InputAdornment={"원"} />
+                      <p>사용가능한 쿠폰 : 3개</p>
+                    </div>
+                    <BasicBtn text={"선택"} handleClick={handleClickOpen} />
+                    <BasicModal
+                      handleClose={handleClose}
+                      open={open}
+                      title={"쿠폰 선택"}
+                      content={"쿠폰선택"}
+                    />
+                  </div>
+                </div>
+                <div className="coupon-list">
+                  <div className="text-box">
+                    <h3>보유 포인트</h3>
+                  </div>
+                  <div className="input-box-wrap">
+                    <div className="input-box">
+                      <InputTextEnd
+                        state={"error"}
+                        helperText={"보유포인트를 초과할 수 없습니다."}
+                        InputAdornment={"원"}
+                      />
+                      <div className="btn-wrap">
+                        <p>5,500원</p>
+                        <Button variant="outlined" onClick={handleClickOpen2}>
+                          포인트 충전
+                        </Button>
+                        <BasicModal
+                          handleClose={handleClose2}
+                          open={open2}
+                          title={"포인트 충전"}
+                          content={"포인트충전"}
+                        />
+                      </div>
+                    </div>
+                    <BasicBtn text={"사용"} state={"disabled"} />
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className="coupon-list">
                   <div className="coupon-list">
                     <div className="text-box">
                       <h3>상품 금액</h3>
                     </div>
                     <div className="text-box">
-                      <h4>3,300원</h4>
+                      <h2>
+                        3,300<span>원</span>
+                      </h2>
                     </div>
                   </div>
-                </li>
-                <li>
+                </div>
+                <div className="coupon-list">
                   <div className="coupon-list">
                     <div className="text-box">
-                      <h3>쿠폰</h3>
+                      <h3>결제 수단</h3>
                     </div>
-                    <div className="input-box-wrap">
-                      <div className="input-box">
-                        <InputTextEnd
-                          state={"disabled"}
-                          InputAdornment={"원"}
-                        />
-                        <p>사용가능한 쿠폰 : 3개</p>
-                      </div>
-                      <BasicBtn text={"선택"} handleClick={handleClickOpen} />
-                      <BasicModal
-                        handleClose={handleClose}
-                        open={open}
-                        title={"쿠폰 선택"}
-                        content={"쿠폰선택"}
-                      />
-                    </div>
-                  </div>
-                  <div className="coupon-list">
                     <div className="text-box">
-                      <h3>보유 포인트</h3>
-                    </div>
-                    <div className="input-box-wrap">
-                      <div className="input-box">
-                        <InputTextEnd
-                          state={"error"}
-                          helperText={"보유포인트를 초과할 수 없습니다."}
-                          InputAdornment={"원"}
-                        />
-                        <div className="btn-wrap">
-                          <p>5,500원</p>
-                          <Button variant="outlined" onClick={handleClickOpen2}>
-                            포인트 충전
-                          </Button>
-                          <BasicModal
-                            handleClose={handleClose2}
-                            open={open2}
-                            title={"포인트 충전"}
-                            content={"포인트충전"}
+                      <FormControl>
+                        <StyledRadioGroup
+                          row
+                          aria-labelledby="demo-row-radio-buttons-group-label"
+                          name="row-radio-buttons-group"
+                        >
+                          <StyledFormControlLabel
+                            value="female"
+                            control={<Radio />}
+                            label="신용카드 결제"
                           />
-                        </div>
-                      </div>
-                      <BasicBtn text={"사용"} state={"disabled"} />
+                          <StyledFormControlLabel
+                            value="male"
+                            control={<Radio />}
+                            label="간편 결제"
+                          />
+                        </StyledRadioGroup>
+                      </FormControl>
                     </div>
                   </div>
-                </li>
-                <li>
-                  <div className="coupon-list">
-                    <div className="coupon-list">
-                      <div className="text-box">
-                        <h3>상품 금액</h3>
-                      </div>
-                      <div className="text-box">
-                        <h2>
-                          3,300<span>원</span>
-                        </h2>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="coupon-list">
-                    <div className="coupon-list">
-                      <div className="text-box">
-                        <h3>결제 수단</h3>
-                      </div>
-                      <div className="text-box">
-                        <FormControl>
-                          <StyledRadioGroup
-                            row
-                            aria-labelledby="demo-row-radio-buttons-group-label"
-                            name="row-radio-buttons-group"
-                          >
-                            <StyledFormControlLabel
-                              value="female"
-                              control={<Radio />}
-                              label="신용카드 결제"
-                            />
-                            <StyledFormControlLabel
-                              value="male"
-                              control={<Radio />}
-                              label="간편 결제"
-                            />
-                          </StyledRadioGroup>
-                        </FormControl>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-              <ButtonWrap>
-                <BasicSBtn text={"취소"} />
-                <BasicBtn text={"결제"} handleClick={handleClickOpen3} />
-                <BasicModal
-                  handleClose={handleClose3}
-                  open={open3}
-                  title={"결제 완료"}
-                  content={"결제완료"}
-                />
-              </ButtonWrap>
-            </PaymentBox>
-          </PaymentWrap>
-        </ContainerBox>
-        <Footer />
-      </ThemeProvider>
+                </div>
+              </li>
+            </ul>
+            <ButtonWrap>
+              <BasicSBtn text={"취소"} />
+              <BasicBtn text={"결제"} handleClick={handleClickOpen3} />
+              <BasicModal
+                handleClose={handleClose3}
+                open={open3}
+                title={"결제 완료"}
+                content={"결제완료"}
+              />
+            </ButtonWrap>
+          </PaymentBox>
+        </PaymentWrap>
+      </ContainerBox>
+      <Footer />
     </>
   );
 }

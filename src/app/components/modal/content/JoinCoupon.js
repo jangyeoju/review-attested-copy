@@ -1,44 +1,28 @@
+"use client";
+
 import styled from "@emotion/styled";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import * as React from "react";
-import { useState } from "react";
+import { Box } from "@mui/material";
 
 import theme from "../../../style/theme";
 
 export default function JoinCoupon() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <JoinCouponWrap>
-          <div className="icon-box">
-            <img src="/img/mobile/icon/coupon.svg" />
-          </div>
-          <div className="coupon-box">
-            <h4>회원가입 쿠폰</h4>
-            <h3>1,000원</h3>
-          </div>
-          <p>
-            회원 가입 쿠폰이 발급되었습니다.
-            <br />
-            유효기간 내에 후기부등본 조회 결제 시 이용하세요.
-            <br />
-            상세내용은 마이페이지 쿠폰에서 확인하세요.
-          </p>
-        </JoinCouponWrap>
-      </ThemeProvider>
-    </>
+    <JoinCouponWrap>
+      <div className="icon-box">
+        <img src="/img/mobile/icon/coupon.svg" />
+      </div>
+      <div className="coupon-box">
+        <h4>회원가입 쿠폰</h4>
+        <h3>1,000원</h3>
+      </div>
+      <p>
+        회원 가입 쿠폰이 발급되었습니다.
+        <br />
+        유효기간 내에 후기부등본 조회 결제 시 이용하세요.
+        <br />
+        상세내용은 마이페이지 쿠폰에서 확인하세요.
+      </p>
+    </JoinCouponWrap>
   );
 }
 

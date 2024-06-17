@@ -1,24 +1,12 @@
+"use client";
+
 import styled from "@emotion/styled";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import { Box, Button, IconButton } from "@mui/material";
+import { Box } from "@mui/material";
 import Rating from "@mui/material/Rating";
 import TextField from "@mui/material/TextField";
 import * as React from "react";
 
-import theme from "../../../../app/style/theme";
-
 export default function GeneralOpinionBox() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
   const [error, setError] = React.useState(false);
   const [text, setText] = React.useState(false);
 
@@ -34,50 +22,46 @@ export default function GeneralOpinionBox() {
     }
   };
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <GeneralOpinionBoxWrap>
-          <div className="title">
-            <h2>종합의견</h2>
-            <div className="rating-box">
-              <Rating
-                name="half-rating"
-                defaultValue={2.5}
-                precision={0.5}
-                readOnly
-              />
-              <h3>3.5점</h3>
-            </div>
-          </div>
-          <>
-            <TextArea
-              id="outlined-multiline-static"
-              multiline
-              rows={7}
-              sx={{ whiteSpace: "pre-line" }}
-              onChange={onInputHandler}
-              placeholder={`ㆍ 종합의견 정상적인 내용으로 최소 30자 이상 입력해야 합니다.\nㆍ 서비스와 무관하거나 권리침해, 욕설, 비하, 명예훼손, 혐오, 스팸 등 불법적인 내용 및 미풍양속에 어긋나는 내용을 게시하면 운영정책 및 관련 법률에 의해 제재될 수 있습니다. 본인이 쓴 내용에 대한 법적 책임은 본인에게 있습니다.`}
-            />
-            <div className="text-num">
-              {text ? (
-                <>
-                  {error ? (
-                    <p className="error">30자 이상 입력해야합니다.</p>
-                  ) : (
-                    <p className="good">판매가가 100원 상승하였습니다.</p>
-                  )}
-                </>
+    <GeneralOpinionBoxWrap>
+      <div className="title">
+        <h2>종합의견</h2>
+        <div className="rating-box">
+          <Rating
+            name="half-rating"
+            defaultValue={2.5}
+            precision={0.5}
+            readOnly
+          />
+          <h3>3.5점</h3>
+        </div>
+      </div>
+      <>
+        <TextArea
+          id="outlined-multiline-static"
+          multiline
+          rows={7}
+          sx={{ whiteSpace: "pre-line" }}
+          onChange={onInputHandler}
+          placeholder={`ㆍ 종합의견 정상적인 내용으로 최소 30자 이상 입력해야 합니다.\nㆍ 서비스와 무관하거나 권리침해, 욕설, 비하, 명예훼손, 혐오, 스팸 등 불법적인 내용 및 미풍양속에 어긋나는 내용을 게시하면 운영정책 및 관련 법률에 의해 제재될 수 있습니다. 본인이 쓴 내용에 대한 법적 책임은 본인에게 있습니다.`}
+        />
+        <div className="text-num">
+          {text ? (
+            <>
+              {error ? (
+                <p className="error">30자 이상 입력해야합니다.</p>
               ) : (
-                <></>
+                <p className="good">판매가가 100원 상승하였습니다.</p>
               )}
-              <span className="num">
-                ({inputCount}/<span>300</span>)
-              </span>
-            </div>
-          </>
-        </GeneralOpinionBoxWrap>
-      </ThemeProvider>
-    </>
+            </>
+          ) : (
+            <></>
+          )}
+          <span className="num">
+            ({inputCount}/<span>300</span>)
+          </span>
+        </div>
+      </>
+    </GeneralOpinionBoxWrap>
   );
 }
 

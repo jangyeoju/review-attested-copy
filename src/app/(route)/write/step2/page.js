@@ -1,8 +1,8 @@
 "use client";
+
 import styled from "@emotion/styled";
 import CloseIcon from "@mui/icons-material/Close";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import * as React from "react";
 import { FileUploader } from "react-drag-drop-files";
 
@@ -18,129 +18,117 @@ import WriteTitle from "@/app/components/title/WriteTitle";
 const fileTypes = ["JPG", "PNG", "GIF"];
 
 export default function Step2() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
   const [file, setFile] = React.useState(null);
   const handleChange = (file) => {
     setFile(file);
   };
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <Nav />
-        <SubBanner>
-          <h2>후기부등본을 등록하세요.</h2>
-          <h1>후기부등본 등록</h1>
-        </SubBanner>
-        <WriteWrap>
-          <ContainerBox3>
-            <WriteBox>
-              <WriteTitle
-                num={"2단계"}
-                text={"실거주 평가항목을 평가해 주세요."}
+      <Nav />
+      <SubBanner>
+        <h2>후기부등본을 등록하세요.</h2>
+        <h1>후기부등본 등록</h1>
+      </SubBanner>
+      <WriteWrap>
+        <ContainerBox3>
+          <WriteBox>
+            <WriteTitle
+              num={"2단계"}
+              text={"실거주 평가항목을 평가해 주세요."}
+            />
+            <div className="price-box">
+              <h3>후기부등본 판매가</h3>
+              <div>
+                <h2>
+                  1,000<span>원</span>
+                </h2>
+                <p>(부가세 별도)</p>
+              </div>
+            </div>
+            <h3>
+              평가항목별{" "}
+              <strong>상세설명을 입력하면 판매가가 계속 올라갑니다.</strong>
+              <br />
+              상세설명을 추가하여 판매가를 올려 보세요.
+            </h3>
+            <div className="checkWriteBox-list">
+              <CheckWriteBox
+                num={"1"}
+                categoryName={"층간소음"}
+                qText={
+                  "깡통전세, 갱신계약 시 문제, 월세 납부 등에 분쟁요소가 있습니까?"
+                }
+                qtype={"1"}
               />
-              <div className="price-box">
-                <h3>후기부등본 판매가</h3>
-                <div>
-                  <h2>
-                    1,000<span>원</span>
-                  </h2>
-                  <p>(부가세 별도)</p>
-                </div>
-              </div>
+              <CheckWriteBox
+                num={"2"}
+                categoryName={"난방"}
+                qText={"난방은 잘 되나요?"}
+                qtype={"1"}
+                addBox={"add"}
+              />
+              <CheckWriteBox
+                num={"3"}
+                categoryName={"주차"}
+                qText={"주차는 잘 되나요?"}
+                qtype={"1"}
+                addBox={"addNone"}
+              />
+            </div>
+            <div className="opinion-box">
+              <GeneralOpinionBox />
+            </div>
+            <div className="img-upload-box">
               <h3>
-                평가항목별{" "}
-                <strong>상세설명을 입력하면 판매가가 계속 올라갑니다.</strong>
-                <br />
-                상세설명을 추가하여 판매가를 올려 보세요.
+                사진 (선택)<span>사진은 4장까지 등록할 수 있습니다.</span>
               </h3>
-              <div className="checkWriteBox-list">
-                <CheckWriteBox
-                  num={"1"}
-                  categoryName={"층간소음"}
-                  qText={
-                    "깡통전세, 갱신계약 시 문제, 월세 납부 등에 분쟁요소가 있습니까?"
-                  }
-                  qtype={"1"}
-                />
-                <CheckWriteBox
-                  num={"2"}
-                  categoryName={"난방"}
-                  qText={"난방은 잘 되나요?"}
-                  qtype={"1"}
-                  addBox={"add"}
-                />
-                <CheckWriteBox
-                  num={"3"}
-                  categoryName={"주차"}
-                  qText={"주차는 잘 되나요?"}
-                  qtype={"1"}
-                  addBox={"addNone"}
-                />
-              </div>
-              <div className="opinion-box">
-                <GeneralOpinionBox />
-              </div>
-              <div className="img-upload-box">
-                <h3>
-                  사진 (선택)<span>사진은 4장까지 등록할 수 있습니다.</span>
-                </h3>
-                <ul className="img-list">
-                  <li>
-                    <div class="upload-img">
-                      <div className="delete-btn">
-                        <IconButton>
-                          <CloseIcon />
-                        </IconButton>
-                      </div>
+              <ul className="img-list">
+                <li>
+                  <div class="upload-img">
+                    <div className="delete-btn">
+                      <IconButton>
+                        <CloseIcon />
+                      </IconButton>
                     </div>
-                  </li>
-                  <li>
-                    <div class="upload-img">
-                      <div className="delete-btn">
-                        <IconButton>
-                          <CloseIcon />
-                        </IconButton>
-                      </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="upload-img">
+                    <div className="delete-btn">
+                      <IconButton>
+                        <CloseIcon />
+                      </IconButton>
                     </div>
-                  </li>
-                  <li>
-                    <StyledFileUploader>
-                      <FileUploader
-                        handleChange={handleChange}
-                        name="file"
-                        types={fileTypes}
-                      />
-                    </StyledFileUploader>
-                  </li>
-                  <li>
-                    <StyledFileUploader>
-                      <FileUploader
-                        handleChange={handleChange}
-                        name="file"
-                        types={fileTypes}
-                      />
-                    </StyledFileUploader>
-                  </li>
-                </ul>
-              </div>
-            </WriteBox>
-            <EndButton>
-              <BasicBtn text={"이전"} />
-              <BasicBtn text={"다음"} state={"disabled"} />
-            </EndButton>
-          </ContainerBox3>
-        </WriteWrap>
-        <Footer />
-      </ThemeProvider>
+                  </div>
+                </li>
+                <li>
+                  <StyledFileUploader>
+                    <FileUploader
+                      handleChange={handleChange}
+                      name="file"
+                      types={fileTypes}
+                    />
+                  </StyledFileUploader>
+                </li>
+                <li>
+                  <StyledFileUploader>
+                    <FileUploader
+                      handleChange={handleChange}
+                      name="file"
+                      types={fileTypes}
+                    />
+                  </StyledFileUploader>
+                </li>
+              </ul>
+            </div>
+          </WriteBox>
+          <EndButton>
+            <BasicBtn text={"이전"} />
+            <BasicBtn text={"다음"} state={"disabled"} />
+          </EndButton>
+        </ContainerBox3>
+      </WriteWrap>
+      <Footer />
     </>
   );
 }

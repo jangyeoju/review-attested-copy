@@ -1,33 +1,19 @@
-import styled from "@emotion/styled";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import * as React from "react";
+"use client";
 
-import theme from "../../../style/theme";
+import styled from "@emotion/styled";
+import { Box } from "@mui/material";
 
 import BasicBtn from "@/app/components/button/BasicBtn";
 
 export default function Notice({ handleClose, text }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <NoticeWrap>
-          <h3>{text}</h3>
-        </NoticeWrap>
-        <ButtonWrap>
-          <BasicBtn text={"확인"} handleClick={handleClose} />
-        </ButtonWrap>
-      </ThemeProvider>
+      <NoticeWrap>
+        <h3>{text}</h3>
+      </NoticeWrap>
+      <ButtonWrap>
+        <BasicBtn text={"확인"} handleClick={handleClose} />
+      </ButtonWrap>
     </>
   );
 }

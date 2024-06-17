@@ -1,9 +1,6 @@
 import styled from "@emotion/styled";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import { Box } from "@mui/material";
 import * as React from "react";
-
-import theme from "../../../style/theme";
 
 export default function TermsOfUse() {
   return (

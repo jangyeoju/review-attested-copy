@@ -1,12 +1,9 @@
 "use client";
+
+import styled from "@emotion/styled";
 import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import * as React from "react";
 import { useState } from "react";
 import "../../../style/global.css";
-import styled from "@emotion/styled";
-
-import theme from "../../../../app/style/theme";
 
 import InputText from "@/app/components/input/InputText";
 import SelectBasic from "@/app/components/input/SelectBasic";
@@ -16,18 +13,7 @@ import BasicModal from "@/app/components/modal/BasicModal";
 import MobileNav from "@/app/components/nav/MobileNav";
 
 export default function Privacy() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -38,87 +24,79 @@ export default function Privacy() {
   };
 
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <MobileBox>
-          <MobileNav text={"개인정보"} />
-          <MobileContainerBox>
-            <PrivacyWrap>
-              <ul className="privacy-list">
-                <li className="privacy-list-box">
-                  <h2>로그인 계정</h2>
-                  <ul className="sns-login">
-                    <li>
-                      <IconButton>
-                        <img src="/img/mobile/login/icon/naver.svg" />
-                      </IconButton>
-                    </li>
-                    <li>
-                      <IconButton>
-                        <img src="/img/mobile/login/icon/kakao.svg" />
-                      </IconButton>
-                    </li>
-                    <li>
-                      <IconButton>
-                        <img src="/img/mobile/login/icon/google.svg" />
-                      </IconButton>
-                    </li>
-                  </ul>
+    <MobileBox>
+      <MobileNav text={"개인정보"} />
+      <MobileContainerBox>
+        <PrivacyWrap>
+          <ul className="privacy-list">
+            <li className="privacy-list-box">
+              <h2>로그인 계정</h2>
+              <ul className="sns-login">
+                <li>
+                  <IconButton>
+                    <img src="/img/mobile/login/icon/naver.svg" />
+                  </IconButton>
                 </li>
-                <li className="privacy-list-box">
-                  <h2>회원 ID</h2>
-                  <InputText value={"213CC94Y52"} state={"disabled"} />
+                <li>
+                  <IconButton>
+                    <img src="/img/mobile/login/icon/kakao.svg" />
+                  </IconButton>
                 </li>
-                <li className="privacy-list-box">
-                  <h2>이름</h2>
-                  <InputText value={"홍길동"} state={"disabled"} />
-                </li>
-                <li className="privacy-list-box">
-                  <h2>이메일</h2>
-                  <InputText value={"admin@naver.com"} state={"disabled"} />
-                </li>
-                <li className="privacy-list-box">
-                  <h2>휴대폰 번호</h2>
-                  <InputText
-                    state={"error"}
-                    helperText={"잘못된 휴대폰번호 입니다."}
-                  />
-                </li>
-                <li className="privacy-list-box">
-                  <h2>생년월일</h2>
-                  <div className="col-3-wrap">
-                    <div class="col-3">
-                      <SelectBasic type={"year"} state={"disabled"} />
-                    </div>
-                    <div class="col-3">
-                      <SelectBasic type={"month"} state={"disabled"} />
-                    </div>
-                    <div class="col-3">
-                      <SelectBasic type={"day"} state={"disabled"} />
-                    </div>
-                  </div>
+                <li>
+                  <IconButton>
+                    <img src="/img/mobile/login/icon/google.svg" />
+                  </IconButton>
                 </li>
               </ul>
-              <div className="button-wrap">
-                <Button
-                  variant="outlined"
-                  color="error"
-                  onClick={handleClickOpen}
-                >
-                  회원탈퇴
-                </Button>
-                <BasicModal
-                  handleClose={handleClose}
-                  open={open}
-                  title={"회원 탈퇴"}
-                  content={"회원탈퇴"}
-                />
+            </li>
+            <li className="privacy-list-box">
+              <h2>회원 ID</h2>
+              <InputText value={"213CC94Y52"} state={"disabled"} />
+            </li>
+            <li className="privacy-list-box">
+              <h2>이름</h2>
+              <InputText value={"홍길동"} state={"disabled"} />
+            </li>
+            <li className="privacy-list-box">
+              <h2>이메일</h2>
+              <InputText value={"admin@naver.com"} state={"disabled"} />
+            </li>
+            <li className="privacy-list-box">
+              <h2>휴대폰 번호</h2>
+              <InputText
+                state={"error"}
+                helperText={"잘못된 휴대폰번호 입니다."}
+              />
+            </li>
+            <li className="privacy-list-box">
+              <h2>생년월일</h2>
+              <div className="col-3-wrap">
+                <div class="col-3">
+                  <SelectBasic type={"year"} state={"disabled"} />
+                </div>
+                <div class="col-3">
+                  <SelectBasic type={"month"} state={"disabled"} />
+                </div>
+                <div class="col-3">
+                  <SelectBasic type={"day"} state={"disabled"} />
+                </div>
               </div>
-            </PrivacyWrap>
-          </MobileContainerBox>
-        </MobileBox>
-      </ThemeProvider>
-    </>
+            </li>
+          </ul>
+          <div className="button-wrap">
+            <Button variant="outlined" color="error" onClick={handleClickOpen}>
+              회원탈퇴
+            </Button>
+            <BasicModal
+              handleClose={handleClose}
+              open={open}
+              title={"회원 탈퇴"}
+              content={"회원탈퇴"}
+            />
+          </div>
+        </PrivacyWrap>
+      </MobileContainerBox>
+    </MobileBox>
   );
 }
 

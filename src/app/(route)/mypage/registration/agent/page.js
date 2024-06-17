@@ -1,12 +1,9 @@
 "use client";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import * as React from "react";
+
+import styled from "@emotion/styled";
+import { Box } from "@mui/material";
 import { useState } from "react";
 import "../../../../style/global.css";
-import styled from "@emotion/styled";
-
-import theme from "../../../../style/theme";
 
 import BasicBtn from "@/app/components/button/BasicBtn";
 import InputText from "@/app/components/input/InputText";
@@ -15,18 +12,7 @@ import MobileContainerBox from "@/app/components/layout/MobileContainerBox";
 import BasicModal from "@/app/components/modal/BasicModal";
 import MobileNav from "@/app/components/nav/MobileNav";
 export default function Agent() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -36,56 +22,52 @@ export default function Agent() {
     setOpen(false);
   };
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <MobileBox>
-          <MobileNav text={"등록신청 및 결제"} />
-          <MobileContainerBox>
-            <AgentWrap>
-              <ul className="privacy-list">
-                <li className="privacy-list-box">
-                  <h2>회원 ID</h2>
-                  <InputText value={"213CC94Y52"} state={"disabled"} />
-                </li>
-                <li className="privacy-list-box">
-                  <h2>이름</h2>
-                  <InputText value={"홍길동"} state={"disabled"} />
-                </li>
-                <li className="privacy-list-box">
-                  <h2>이메일</h2>
-                  <InputText value={"admin@naver.com"} state={"disabled"} />
-                </li>
-                <li className="privacy-list-box">
-                  <h2>휴대폰 번호</h2>
-                  <InputText state={"disabled"} value={"01012341234"} />
-                </li>
-                <li className="privacy-list-box">
-                  <h2>공인중개사 사무소명</h2>
-                  <InputText value={"홍길동 사무소"} />
-                </li>
-                <li className="privacy-list-box">
-                  <h2>사무실 주소</h2>
-                  <InputText value={"서울시 강남구 역삼동"} />
-                </li>
-                <li>
-                  <h2>공인중개사 사무소명</h2>
-                  <p> 2023-04-17 11:23, 삼성카드 (1344) 165,000원 </p>
-                </li>
-              </ul>
-              <div className="bottom-btn">
-                <BasicBtn text={"확인"} handleClick={handleClickOpen} />
-                <BasicModal
-                  handleClose={handleClose}
-                  open={open}
-                  title={"검증단 등록 완료"}
-                  content={"검증단등록완료"}
-                />
-              </div>
-            </AgentWrap>
-          </MobileContainerBox>
-        </MobileBox>
-      </ThemeProvider>
-    </>
+    <MobileBox>
+      <MobileNav text={"등록신청 및 결제"} />
+      <MobileContainerBox>
+        <AgentWrap>
+          <ul className="privacy-list">
+            <li className="privacy-list-box">
+              <h2>회원 ID</h2>
+              <InputText value={"213CC94Y52"} state={"disabled"} />
+            </li>
+            <li className="privacy-list-box">
+              <h2>이름</h2>
+              <InputText value={"홍길동"} state={"disabled"} />
+            </li>
+            <li className="privacy-list-box">
+              <h2>이메일</h2>
+              <InputText value={"admin@naver.com"} state={"disabled"} />
+            </li>
+            <li className="privacy-list-box">
+              <h2>휴대폰 번호</h2>
+              <InputText state={"disabled"} value={"01012341234"} />
+            </li>
+            <li className="privacy-list-box">
+              <h2>공인중개사 사무소명</h2>
+              <InputText value={"홍길동 사무소"} />
+            </li>
+            <li className="privacy-list-box">
+              <h2>사무실 주소</h2>
+              <InputText value={"서울시 강남구 역삼동"} />
+            </li>
+            <li>
+              <h2>공인중개사 사무소명</h2>
+              <p> 2023-04-17 11:23, 삼성카드 (1344) 165,000원 </p>
+            </li>
+          </ul>
+          <div className="bottom-btn">
+            <BasicBtn text={"확인"} handleClick={handleClickOpen} />
+            <BasicModal
+              handleClose={handleClose}
+              open={open}
+              title={"검증단 등록 완료"}
+              content={"검증단등록완료"}
+            />
+          </div>
+        </AgentWrap>
+      </MobileContainerBox>
+    </MobileBox>
   );
 }
 

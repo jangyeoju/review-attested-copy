@@ -1,15 +1,12 @@
 "use client";
+
+import styled from "@emotion/styled";
 import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import * as React from "react";
 import { useState } from "react";
 import "../../style/global.css";
-import styled from "@emotion/styled";
-
-import theme from "../../../app/style/theme";
-
-import Checkbox from "@mui/material/Checkbox";
-import FormControlLabel from "@mui/material/FormControlLabel";
 
 import BottomBtn from "@/app/components/button/BottomBtn";
 import InputText from "@/app/components/input/InputText";
@@ -20,16 +17,6 @@ import BasicModal from "@/app/components/modal/BasicModal";
 import MobileNav from "@/app/components/nav/MobileNav";
 
 export default function Join() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
   const [open, setOpen] = React.useState(false);
@@ -78,136 +65,130 @@ export default function Join() {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <MobileBox>
-          <MobileNav text={"회원가입"} type={"delete"} />
-          <MobileContainerBox>
-            <JoinWrap>
-              <ul className="join-list">
-                <li className="join-list-box">
-                  <h2>로그인 계정</h2>
-                  <ul className="sns-login">
-                    <li>
-                      <IconButton>
-                        <img src="/img/mobile/login/icon/naver.svg" />
-                      </IconButton>
-                    </li>
-                    <li>
-                      <IconButton>
-                        <img src="/img/mobile/login/icon/kakao.svg" />
-                      </IconButton>
-                    </li>
-                    <li>
-                      <IconButton>
-                        <img src="/img/mobile/login/icon/google.svg" />
-                      </IconButton>
-                    </li>
-                  </ul>
-                </li>
-                <li className="join-list-box">
-                  <h2>이름</h2>
-                  <InputText value={"홍길동"} />
-                </li>
-                <li className="join-list-box">
-                  <h2>이메일</h2>
-                  <InputText state={"disabled"} />
-                </li>
-                <li className="join-list-box">
-                  <h2>휴대폰 번호</h2>
-                  <InputText
-                    state={"error"}
-                    helperText={"잘못된 휴대폰번호 입니다."}
-                  />
-                </li>
-                <li className="join-list-box">
-                  <h2>생년월일</h2>
-                  <div className="col-3-wrap">
-                    <div class="col-3">
-                      <SelectBasic
-                        type={"year"}
-                        state={"error"}
-                        helperText={"만 14세 이상, 1900년대 이후만 가능합니다."}
-                      />
-                    </div>
-                    <div class="col-3">
-                      <SelectBasic type={"month"} state={"error"} />
-                    </div>
-                    <div class="col-3">
-                      <SelectBasic type={"day"} state={"error"} />
-                    </div>
-                  </div>
-                  <span className="helperText">
-                    만 14세 이상, 1900년대 이후만 가능합니다.
-                  </span>
-                </li>
-              </ul>
-              <div className="check-list">
-                <div>
-                  <StyledFormControlLabel
-                    label="전체동의"
-                    control={
-                      <Checkbox
-                        name="select-all"
-                        onChange={(e) => handleAllCheck(e.target.checked)}
-                        checked={
-                          checkItems.length === data.length ? true : false
-                        }
-                      />
-                    }
-                  />
-                </div>
-                {data?.map((data, key) => (
-                  <div key={key} className="check-list-wrap">
-                    <div>
-                      <Checkbox
-                        type="checkbox"
-                        name={`select-${data.id}`}
-                        onChange={(e) =>
-                          handleSingleCheck(e.target.checked, data.id)
-                        }
-                        checked={checkItems.includes(data.id) ? true : false}
-                      />
-                    </div>
-                    {data.id == 1 ? (
-                      <div className="second-row">
-                        <h4>
-                          <span onClick={handleClickOpen}>이용약관</span>동의
-                        </h4>
-                      </div>
-                    ) : data.id == 2 ? (
-                      <div className="second-row">
-                        <h4>
-                          <span onClick={handleClickOpen2}>
-                            개인정보처리방침
-                          </span>
-                          동의
-                        </h4>
-                      </div>
-                    ) : (
-                      <div className="second-row">
-                        <h4>{data.title}</h4>
-                      </div>
-                    )}
-                  </div>
-                ))}
-                <BasicModal
-                  handleClose={handleClose}
-                  open={open}
-                  title={"이용약관"}
-                  content={"이용약관"}
+      <MobileBox>
+        <MobileNav text={"회원가입"} type={"delete"} />
+        <MobileContainerBox>
+          <JoinWrap>
+            <ul className="join-list">
+              <li className="join-list-box">
+                <h2>로그인 계정</h2>
+                <ul className="sns-login">
+                  <li>
+                    <IconButton>
+                      <img src="/img/mobile/login/icon/naver.svg" />
+                    </IconButton>
+                  </li>
+                  <li>
+                    <IconButton>
+                      <img src="/img/mobile/login/icon/kakao.svg" />
+                    </IconButton>
+                  </li>
+                  <li>
+                    <IconButton>
+                      <img src="/img/mobile/login/icon/google.svg" />
+                    </IconButton>
+                  </li>
+                </ul>
+              </li>
+              <li className="join-list-box">
+                <h2>이름</h2>
+                <InputText value={"홍길동"} />
+              </li>
+              <li className="join-list-box">
+                <h2>이메일</h2>
+                <InputText state={"disabled"} />
+              </li>
+              <li className="join-list-box">
+                <h2>휴대폰 번호</h2>
+                <InputText
+                  state={"error"}
+                  helperText={"잘못된 휴대폰번호 입니다."}
                 />
-                <BasicModal
-                  handleClose={handleClose2}
-                  open={open2}
-                  title={"개인정보처리방침"}
-                  content={"개인정보처리방침"}
+              </li>
+              <li className="join-list-box">
+                <h2>생년월일</h2>
+                <div className="col-3-wrap">
+                  <div class="col-3">
+                    <SelectBasic
+                      type={"year"}
+                      state={"error"}
+                      helperText={"만 14세 이상, 1900년대 이후만 가능합니다."}
+                    />
+                  </div>
+                  <div class="col-3">
+                    <SelectBasic type={"month"} state={"error"} />
+                  </div>
+                  <div class="col-3">
+                    <SelectBasic type={"day"} state={"error"} />
+                  </div>
+                </div>
+                <span className="helperText">
+                  만 14세 이상, 1900년대 이후만 가능합니다.
+                </span>
+              </li>
+            </ul>
+            <div className="check-list">
+              <div>
+                <StyledFormControlLabel
+                  label="전체동의"
+                  control={
+                    <Checkbox
+                      name="select-all"
+                      onChange={(e) => handleAllCheck(e.target.checked)}
+                      checked={checkItems.length === data.length ? true : false}
+                    />
+                  }
                 />
               </div>
-            </JoinWrap>
-          </MobileContainerBox>
-          <BottomBtn text={"회원가입"} type={"disabled"} />
-        </MobileBox>
-      </ThemeProvider>
+              {data?.map((data, key) => (
+                <div key={key} className="check-list-wrap">
+                  <div>
+                    <Checkbox
+                      type="checkbox"
+                      name={`select-${data.id}`}
+                      onChange={(e) =>
+                        handleSingleCheck(e.target.checked, data.id)
+                      }
+                      checked={checkItems.includes(data.id) ? true : false}
+                    />
+                  </div>
+                  {data.id == 1 ? (
+                    <div className="second-row">
+                      <h4>
+                        <span onClick={handleClickOpen}>이용약관</span>동의
+                      </h4>
+                    </div>
+                  ) : data.id == 2 ? (
+                    <div className="second-row">
+                      <h4>
+                        <span onClick={handleClickOpen2}>개인정보처리방침</span>
+                        동의
+                      </h4>
+                    </div>
+                  ) : (
+                    <div className="second-row">
+                      <h4>{data.title}</h4>
+                    </div>
+                  )}
+                </div>
+              ))}
+              <BasicModal
+                handleClose={handleClose}
+                open={open}
+                title={"이용약관"}
+                content={"이용약관"}
+              />
+              <BasicModal
+                handleClose={handleClose2}
+                open={open2}
+                title={"개인정보처리방침"}
+                content={"개인정보처리방침"}
+              />
+            </div>
+          </JoinWrap>
+        </MobileContainerBox>
+        <BottomBtn text={"회원가입"} type={"disabled"} />
+      </MobileBox>
     </>
   );
 }

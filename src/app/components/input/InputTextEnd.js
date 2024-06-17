@@ -1,11 +1,9 @@
+"use client";
+
 import styled from "@emotion/styled";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import * as React from "react";
 
-import theme from "../../style/theme";
-
-// import InputAdornment from '@mui/material/InputAdornment';
 export default function InputTextEnd({
   state,
   helperText,
@@ -13,18 +11,8 @@ export default function InputTextEnd({
   placeholder,
   InputAdornment,
 }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
   return (
-    <ThemeProvider theme={theme}>
+    <>
       {state == "disabled" ? (
         <StyledTextField
           id="outlined-basic"
@@ -76,7 +64,7 @@ export default function InputTextEnd({
       ) : (
         <></>
       )}
-    </ThemeProvider>
+    </>
   );
 }
 

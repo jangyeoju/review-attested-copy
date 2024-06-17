@@ -1,29 +1,11 @@
+"use client";
+
 import styled from "@emotion/styled";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import { Box, Button, IconButton } from "@mui/material";
+import { Button } from "@mui/material";
 import * as React from "react";
 
-import theme from "../../style/theme";
-
 export default function RoundSBtn({ text }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#00D45E",
-      },
-    },
-  });
-
-  return (
-    <>
-      <ThemeProvider theme={theme}>
-        <RSBtn variant="outlined">{text}</RSBtn>
-      </ThemeProvider>
-    </>
-  );
+  return <RSBtn variant="outlined">{text}</RSBtn>;
 }
 
 const RSBtn = styled(Button)`

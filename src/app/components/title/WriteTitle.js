@@ -1,29 +1,15 @@
+"use client";
+
 import styled from "@emotion/styled";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import { Box } from "@mui/material";
 import * as React from "react";
 
-import theme from "../../../app/style/theme";
 export default function WriteTitle({ num, text }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <WriteTitleWrap>
-          <div className="num-box">{num}</div>
-          <h2>{text}</h2>
-        </WriteTitleWrap>
-      </ThemeProvider>
-    </>
+    <WriteTitleWrap>
+      <div className="num-box">{num}</div>
+      <h2>{text}</h2>
+    </WriteTitleWrap>
   );
 }
 

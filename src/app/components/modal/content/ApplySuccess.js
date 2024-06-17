@@ -1,45 +1,31 @@
+"use client";
+
 import styled from "@emotion/styled";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import { Box } from "@mui/material";
 import * as React from "react";
 
-import theme from "../../../style/theme";
 import BasicBtn from "../../button/BasicBtn";
 
 export default function ApplySuccess({ handleClose }) {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <ApplySuccessWrap>
-          <h3>공인중개사 검증신청이 완료되었습니다.</h3>
-          <div className="search-result">
-            <h2>
-              사무소 : <span>홍길동 사무소 (02-333-4444)</span>
-            </h2>
-            <h2>
-              공인중개사 : <span>홍길동 </span>{" "}
-            </h2>
-            <h2>
-              주소 : <span>서울시 강남구 논현동222</span>
-            </h2>
-          </div>
-          <p>진행내역 후기부등본 마이페이지에서 확인 하실 수 있습니다.</p>
-          <ButtonWrap>
-            <BasicBtn text={"확인"} handleClick={handleClose} />
-          </ButtonWrap>
-        </ApplySuccessWrap>
-      </ThemeProvider>
-    </>
+    <ApplySuccessWrap>
+      <h3>공인중개사 검증신청이 완료되었습니다.</h3>
+      <div className="search-result">
+        <h2>
+          사무소 : <span>홍길동 사무소 (02-333-4444)</span>
+        </h2>
+        <h2>
+          공인중개사 : <span>홍길동 </span>{" "}
+        </h2>
+        <h2>
+          주소 : <span>서울시 강남구 논현동222</span>
+        </h2>
+      </div>
+      <p>진행내역 후기부등본 마이페이지에서 확인 하실 수 있습니다.</p>
+      <ButtonWrap>
+        <BasicBtn text={"확인"} handleClick={handleClose} />
+      </ButtonWrap>
+    </ApplySuccessWrap>
   );
 }
 

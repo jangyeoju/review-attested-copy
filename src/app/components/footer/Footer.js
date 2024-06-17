@@ -1,6 +1,7 @@
+"use client";
+
 import styled from "@emotion/styled";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import * as React from "react";
 
 import theme from "../../../app/style/theme";
@@ -8,17 +9,6 @@ import ContainerBox from "../layout/ContainerBox";
 import BasicModal from "../modal/BasicModal";
 
 export default function Footer() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
-
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -51,56 +41,54 @@ export default function Footer() {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <FooterWrap>
-          <ContainerBox>
-            <div className="logo-box">
-              <img src="/img/logo2.svg" />
-            </div>
-            <ul className="footer-info">
-              <li>주식회사 후기부등본</li>
-              <li>대표 : 이혁재 </li>
-              <li>주소 : 서울시 OO구 OO로 후기부등본빌딩 000호</li>
-              <li>사업자등록번호 : 111-88-11111 </li>
-            </ul>
-            <ul className="footer-info">
-              <li>통신판매업 신고번호 : 제2024-OO구000호</li>
-              <li>전화번호 : 070-0000-0000 </li>
-              <li>이메일 : hugibuteam@gmail.com </li>
-              <li>개인정보보호책임자 : 이혁재 </li>
-            </ul>
-          </ContainerBox>
-        </FooterWrap>
-        <FooterBottom>
-          <ContainerBox>
-            <div className="modal-wrap">
-              <ModalBtn onClick={handleClickOpen}>이용약관</ModalBtn>
-              <span> | </span>
-              <ModalBtn onClick={handleClickOpen2}>개인정보처리방침</ModalBtn>
-              <span> | </span>
-              <ModalBtn onClick={handleClickOpen3}>서비스 운영정책</ModalBtn>
-            </div>
-            <BasicModal
-              handleClose={handleClose}
-              open={open}
-              title={"이용약관"}
-              content={"이용약관"}
-            />
-            <BasicModal
-              handleClose={handleClose2}
-              open={open2}
-              title={"개인정보처리방침"}
-              content={"개인정보처리방침"}
-            />
-            <BasicModal
-              handleClose={handleClose3}
-              open={open3}
-              title={"서비스 운영정책"}
-              content={"서비스"}
-            />
-          </ContainerBox>
-        </FooterBottom>
-      </ThemeProvider>
+      <FooterWrap>
+        <ContainerBox>
+          <div className="logo-box">
+            <img src="/img/logo2.svg" />
+          </div>
+          <ul className="footer-info">
+            <li>주식회사 후기부등본</li>
+            <li>대표 : 이혁재 </li>
+            <li>주소 : 서울시 OO구 OO로 후기부등본빌딩 000호</li>
+            <li>사업자등록번호 : 111-88-11111 </li>
+          </ul>
+          <ul className="footer-info">
+            <li>통신판매업 신고번호 : 제2024-OO구000호</li>
+            <li>전화번호 : 070-0000-0000 </li>
+            <li>이메일 : hugibuteam@gmail.com </li>
+            <li>개인정보보호책임자 : 이혁재 </li>
+          </ul>
+        </ContainerBox>
+      </FooterWrap>
+      <FooterBottom>
+        <ContainerBox>
+          <div className="modal-wrap">
+            <ModalBtn onClick={handleClickOpen}>이용약관</ModalBtn>
+            <span> | </span>
+            <ModalBtn onClick={handleClickOpen2}>개인정보처리방침</ModalBtn>
+            <span> | </span>
+            <ModalBtn onClick={handleClickOpen3}>서비스 운영정책</ModalBtn>
+          </div>
+          <BasicModal
+            handleClose={handleClose}
+            open={open}
+            title={"이용약관"}
+            content={"이용약관"}
+          />
+          <BasicModal
+            handleClose={handleClose2}
+            open={open2}
+            title={"개인정보처리방침"}
+            content={"개인정보처리방침"}
+          />
+          <BasicModal
+            handleClose={handleClose3}
+            open={open3}
+            title={"서비스 운영정책"}
+            content={"서비스"}
+          />
+        </ContainerBox>
+      </FooterBottom>
     </>
   );
 }

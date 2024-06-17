@@ -1,20 +1,15 @@
+"use client";
+
 import styled from "@emotion/styled";
 import EditIcon from "@mui/icons-material/Edit";
-import ExpandLess from "@mui/icons-material/ExpandLess";
-import ExpandMore from "@mui/icons-material/ExpandMore";
 import MapIcon from "@mui/icons-material/Map";
 import MenuIcon from "@mui/icons-material/Menu";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import StarsIcon from "@mui/icons-material/Stars";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import { Box, Button, IconButton } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import Collapse from "@mui/material/Collapse";
 import Link from "@mui/material/Link";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
 import * as React from "react";
 
 import theme from "../../style/theme";
@@ -22,17 +17,6 @@ import RoundSBtn from "../button/RoundSBtn";
 import ContainerBox from "../layout/ContainerBox";
 
 export default function Nav() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#0080F7",
-      },
-    },
-  });
-
   const [moOpen, setMoOpen] = React.useState(false);
 
   const handleMoClick = () => {
@@ -52,91 +36,87 @@ export default function Nav() {
   };
 
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <NavWrap>
-          <ContainerBox>
-            <PC>
-              <div className="nav-wrap">
+    <NavWrap>
+      <ContainerBox>
+        <PC>
+          <div className="nav-wrap">
+            <div className="logo">
+              <img src="/img/logo.svg" />
+            </div>
+            <ul className="menu-list">
+              <li className="menu">
+                <StarsIcon />
+                <a href="">바로가기 설치</a>
+              </li>
+              <li className="menu">
+                <MapIcon />
+                <a href="">지도로 보기</a>
+              </li>
+              <li className="menu">
+                <EditIcon />
+                <a href="">후기부등본 쓰기</a>
+              </li>
+              <li>
+                <RoundSBtn text={"로그인"} />
+              </li>
+            </ul>
+          </div>
+        </PC>
+        <Mobile>
+          <div className="nav-wrap">
+            <StyledList
+              sx={{ width: "100%", bgcolor: "background.paper" }}
+              component="nav"
+              aria-labelledby="nested-list-subheader"
+            >
+              <div className="dp-flex mobileNav">
                 <div className="logo">
-                  <img src="/img/logo.svg" />
+                  <a href="/">
+                    <img src="/img/logo.svg"></img>
+                  </a>
                 </div>
-                <ul className="menu-list">
-                  <li className="menu">
-                    <StarsIcon />
-                    <a href="">바로가기 설치</a>
-                  </li>
-                  <li className="menu">
-                    <MapIcon />
-                    <a href="">지도로 보기</a>
-                  </li>
-                  <li className="menu">
-                    <EditIcon />
-                    <a href="">후기부등본 쓰기</a>
-                  </li>
-                  <li>
-                    <RoundSBtn text={"로그인"} />
-                  </li>
-                </ul>
+                <div className="dp-flex">
+                  <RoundSBtn text={"로그인"} />
+                  <MenuBtn onClick={handleMoClick} sx={{ p: 0 }}>
+                    <MenuIcon />
+                  </MenuBtn>
+                </div>
               </div>
-            </PC>
-            <Mobile>
-              <div className="nav-wrap">
-                <StyledList
-                  sx={{ width: "100%", bgcolor: "background.paper" }}
-                  component="nav"
-                  aria-labelledby="nested-list-subheader"
-                >
-                  <div className="dp-flex mobileNav">
-                    <div className="logo">
-                      <a href="/">
-                        <img src="/img/logo.svg"></img>
-                      </a>
-                    </div>
-                    <div className="dp-flex">
-                      <RoundSBtn text={"로그인"} />
-                      <MenuBtn onClick={handleMoClick} sx={{ p: 0 }}>
-                        <MenuIcon />
-                      </MenuBtn>
-                    </div>
-                  </div>
-                  <StyledCollapse in={moOpen} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding sx={{ mt: 0 }}>
-                      <StyledLink href="" underline="none">
-                        <ListItemButton>
-                          <div className="menu">
-                            <StarsIcon />
-                            <a href="">바로가기 설치</a>
-                          </div>
-                        </ListItemButton>
-                      </StyledLink>
+              <StyledCollapse in={moOpen} timeout="auto" unmountOnExit>
+                <List component="div" disablePadding sx={{ mt: 0 }}>
+                  <StyledLink href="" underline="none">
+                    <ListItemButton>
+                      <div className="menu">
+                        <StarsIcon />
+                        <a href="">바로가기 설치</a>
+                      </div>
+                    </ListItemButton>
+                  </StyledLink>
 
-                      <StyledLink href="" underline="none">
-                        <ListItemButton>
-                          <div className="menu">
-                            <MapIcon />
-                            <a href="">지도로 보기</a>
-                          </div>
-                        </ListItemButton>
-                      </StyledLink>
+                  <StyledLink href="" underline="none">
+                    <ListItemButton>
+                      <div className="menu">
+                        <MapIcon />
+                        <a href="">지도로 보기</a>
+                      </div>
+                    </ListItemButton>
+                  </StyledLink>
 
-                      <StyledLink href="" underline="none">
-                        <ListItemButton>
-                          <div className="menu">
-                            <EditIcon />
-                            <a href="">후기부등본 쓰기</a>
-                          </div>
-                        </ListItemButton>
-                      </StyledLink>
-                    </List>
-                  </StyledCollapse>
-                </StyledList>
-              </div>
-            </Mobile>
-          </ContainerBox>
-        </NavWrap>
-      </ThemeProvider>
-    </>
+                  <StyledLink href="" underline="none">
+                    <ListItemButton>
+                      <div className="menu">
+                        <EditIcon />
+                        <a href="">후기부등본 쓰기</a>
+                      </div>
+                    </ListItemButton>
+                  </StyledLink>
+                </List>
+              </StyledCollapse>
+            </StyledList>
+          </div>
+        </Mobile>
+      </ContainerBox>
+    </NavWrap>
   );
 }
 

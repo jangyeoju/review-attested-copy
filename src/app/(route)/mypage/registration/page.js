@@ -1,93 +1,74 @@
 "use client";
-import { Box, Button, IconButton } from "@mui/material";
-import { createTheme, Divider, Icon, ThemeProvider } from "@mui/material";
-import * as React from "react";
-import { useState } from "react";
-import "../../../style/global.css";
-import styled from "@emotion/styled";
 
-import theme from "../../../../app/style/theme";
+import styled from "@emotion/styled";
+import { Box } from "@mui/material";
+import "../../../style/global.css";
 
 import BasicBtn from "@/app/components/button/BasicBtn";
 import MobileBox from "@/app/components/layout/MobileBox";
 import MobileContainerBox from "@/app/components/layout/MobileContainerBox";
-import BasicModal from "@/app/components/modal/BasicModal";
 import MobileNav from "@/app/components/nav/MobileNav";
 
 export default function Registration() {
-  const theme = createTheme({
-    typography: {
-      fontFamily: "Pretendard",
-    },
-    palette: {
-      primary: {
-        main: "#28E67C",
-      },
-    },
-  });
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <MobileBox>
-          <MobileNav text={"공인중개사 검증단 등록"} />
-          <MobileContainerBox>
-            <RegistrationWrap>
-              <ul>
-                <li>
-                  <h3>공인중개사 검증단</h3>
-                  <p>
-                    공인중개사 검증단은 이용자의 요구에 따라 해당물건 의
-                    실거주자 후기부등본을 확인하고 <br />
-                    객관적 입장에서 후기부등록을 작성합니다.
-                  </p>
-                </li>
-                <li>
-                  <h3>신청자격</h3>
-                  <p>
-                    회원 본인이 공인중개사인 경우{" "}
-                    <strong>공인중개사 자격증 사본</strong> 제출
-                  </p>
-                </li>
-                <li>
-                  <h3>검증방법</h3>
-                  <p>
-                    1. 이용자의 검증신청 시 공인중개사 선택
-                    <br />
-                    2. 공인중개사가 검증 진행여부 결정 <br />
-                    3. 검증진행 시 30일 이내 검증완료 <br />
-                    4. 검증완료 후 검증수수료 수령
-                  </p>
-                </li>
-                <li>
-                  <h3>검증 수수료</h3>
-                  <p>
-                    후기부등본 검증당 <strong>110,000원</strong>(부가세포함)
-                  </p>
-                </li>
-                <li>
-                  <h3>검증단 등록비</h3>
-                  <p>
-                    <strong>165,000원</strong>(부가세포함)
-                  </p>
-                </li>
-                <li>
-                  <h3>검증단 자격 유지기간</h3>
-                  <p>
-                    결제일로부터 <strong>1년</strong>
-                  </p>
-                </li>
-              </ul>
-              <div className="bottom-btn">
-                <BasicBtn
-                  text={"공인중개사 검증단 등록"}
-                  href={"/mypage/registration/agent"}
-                />
-              </div>
-            </RegistrationWrap>
-          </MobileContainerBox>
-        </MobileBox>
-      </ThemeProvider>
-    </>
+    <MobileBox>
+      <MobileNav text={"공인중개사 검증단 등록"} />
+      <MobileContainerBox>
+        <RegistrationWrap>
+          <ul>
+            <li>
+              <h3>공인중개사 검증단</h3>
+              <p>
+                공인중개사 검증단은 이용자의 요구에 따라 해당물건 의 실거주자
+                후기부등본을 확인하고 <br />
+                객관적 입장에서 후기부등록을 작성합니다.
+              </p>
+            </li>
+            <li>
+              <h3>신청자격</h3>
+              <p>
+                회원 본인이 공인중개사인 경우{" "}
+                <strong>공인중개사 자격증 사본</strong> 제출
+              </p>
+            </li>
+            <li>
+              <h3>검증방법</h3>
+              <p>
+                1. 이용자의 검증신청 시 공인중개사 선택
+                <br />
+                2. 공인중개사가 검증 진행여부 결정 <br />
+                3. 검증진행 시 30일 이내 검증완료 <br />
+                4. 검증완료 후 검증수수료 수령
+              </p>
+            </li>
+            <li>
+              <h3>검증 수수료</h3>
+              <p>
+                후기부등본 검증당 <strong>110,000원</strong>(부가세포함)
+              </p>
+            </li>
+            <li>
+              <h3>검증단 등록비</h3>
+              <p>
+                <strong>165,000원</strong>(부가세포함)
+              </p>
+            </li>
+            <li>
+              <h3>검증단 자격 유지기간</h3>
+              <p>
+                결제일로부터 <strong>1년</strong>
+              </p>
+            </li>
+          </ul>
+          <div className="bottom-btn">
+            <BasicBtn
+              text={"공인중개사 검증단 등록"}
+              href={"/mypage/registration/agent"}
+            />
+          </div>
+        </RegistrationWrap>
+      </MobileContainerBox>
+    </MobileBox>
   );
 }
 
